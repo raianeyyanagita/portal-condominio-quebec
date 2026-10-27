@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Executiva de Implantação | Portal Condomínio Residencial Quebec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .proposal-wrap {
+      max-width: 960px;
+      margin: 2.5rem auto 4rem;
+      padding: 0 1.5rem;
+    }
+    .proposal-sheet {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 3.25rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .proposal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 3px solid var(--bg-dark);
+      padding-bottom: 1.75rem;
+      margin-bottom: 2rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .proposal-section {
+      margin-bottom: 2.25rem;
+    }
+    .proposal-section h3 {
+      font-size: 1.2rem;
+      color: var(--bg-dark);
+      margin-bottom: 0.75rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+    }
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .module-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.15rem;
+    }
+    .module-box strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+      font-size: 0.96rem;
+    }
+    .module-box p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff; }
+      .proposal-sheet { box-shadow: none; border: none; padding: 0; }
+    }
+    @media (max-width: 768px) {
+      .module-grid { grid-template-columns: 1fr; }
+      .proposal-sheet { padding: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar no-print">
+    <div class="topbar-inner">
+      <div>
+        <a href="index.html" style="color:#fff; text-decoration:none; font-weight:600;">← Voltar para o Portal do Condomínio Quebec</a>
+      </div>
+      <div style="display:flex; gap:0.75rem;">
+        <button class="btn btn-gold btn-sm" onclick="window.print()">🖨️ Imprimir / Salvar Proposta em PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="proposal-wrap">
+    <div class="proposal-sheet">
+      <div class="proposal-header" style="border-bottom-color: var(--green-forest);">
+        <div>
+          <span style="font-size:0.78rem; font-weight:800; color:var(--green-medium); text-transform:uppercase; letter-spacing:0.08em;">
+            🌿 Identidade Verde Claro & Branco • Proposta Executiva de Modernização
+          </span>
+          <h1 style="font-family:'Outfit',sans-serif; font-size:1.95rem; font-weight:800; color:var(--green-forest); margin-top:0.35rem;">
+            Portal Oficial & Sistema de Gestão — Condomínio Residencial Quebec
+          </h1>
+          <p style="color:var(--text-body); font-size:0.95rem; margin-top:0.3rem;">
+            📍 Rua Ênio Pereira de Carvalho, nº 383 • Bairro Parque Jardim Santanense, Itaúna – MG (CEP 35681-312)
+          </p>
+        </div>
+        <div style="background:var(--bg-soft-green); border:1.5px solid var(--border-strong); padding:1rem 1.25rem; border-radius:14px; min-width:240px;">
+          <div style="font-size:0.74rem; color:var(--green-deep); text-transform:uppercase; font-weight:800;">Destinatário</div>
+          <div style="font-size:1.08rem; font-weight:800; color:var(--green-forest);">Sr. Celson Rodrigues</div>
+          <div style="font-size:0.84rem; color:var(--green-medium); font-weight:700;">Síndico — Condomínio Quebec</div>
+          <div style="font-size:0.78rem; color:var(--text-muted); margin-top:0.35rem;">Data: Outubro / 2026</div>
+        </div>
+      </div>
+
+      <div class="proposal-section">
+        <h3>1. Objetivo do Projeto</h3>
+        <p style="color:var(--text-muted); font-size:0.95rem;">
+          Dotar o <strong>Condomínio Residencial Quebec</strong> e a gestão do Síndico <strong>Celson Rodrigues</strong> de uma plataforma web própria, moderna e centralizada que organiza a comunicação oficial, valoriza os imóveis perante o mercado de Itaúna/MG, elimina ruídos em grupos de WhatsApp e oferece transparência total às obras, atas de assembleias e demandas dos moradores.
+        </p>
+      </div>
+
+      <div class="proposal-section">
+        <h3>2. Módulos Entregues e Prontos para Uso (Full-Stack)</h3>
+        <div class="module-grid">
+          <div class="module-box">
+            <strong>🏢 1. Aba Institucional & Mapa Interativo</strong>
+            <p>Apresentação oficial do Condomínio Quebec (Rua Ênio Pereira de Carvalho, 383 - Parque Jardim Santanense), ficha técnica dos blocos, galeria de fotos e integração Google Maps.</p>
+          </div>
+          <div class="module-box">
+            <strong>🛠️ 2. Aba de Obras e Melhorias da Gestão</strong>
+            <p>Vitrine transparente com barra de progresso, status (Planejado, Em Andamento, Concluído), valores investidos e fotos das benfeitorias realizadas pelo síndico.</p>
+          </div>
+          <div class="module-box">
+            <strong>👔 3. Aba de Gestão — Síndico Celson Rodrigues</strong>
+            <p>Espaço institucional destacando as diretrizes da gestão, horários de atendimento, prestação de contas e canais diretos com a administração.</p>
+          </div>
+          <div class="module-box">
+            <strong>📋 4. Central de Atas de Reuniões & Assembleias</strong>
+            <p>Arquivo digital pesquisável onde os moradores leem as pautas deliberadas e podem imprimir ou salvar a ata oficial em PDF com 1 clique.</p>
+          </div>
+          <div class="module-box">
+            <strong>📣 5. Ouvidoria & Reclamações Armazenadas</strong>
+            <p>Registro formal de ocorrências e sugestões com geração de protocolo único (ex: <code>#QBC-2026-XXXX</code>), opção de sigilo e resposta oficial do Síndico.</p>
+          </div>
+          <div class="module-box">
+            <strong>🤝 6. Guia de Serviços dos Moradores (Com Cadastro)</strong>
+            <p>Vitrine colaborativa onde moradores cadastram seus serviços informando <strong>Nome, CPF, Celular, Bloco, Apartamento e Serviço Prestado</strong>, com botão direto para WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="proposal-section">
+        <h3>3. Diferencial Técnico: Back-end Administrativo do Síndico</h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:0.85rem;">
+          O sistema conta com um <strong>Painel Administrativo Restrito</strong> exclusivo para o Síndico <strong>Celson Rodrigues</strong>, permitindo sem precisar de programador:
+        </p>
+        <ul style="padding-left:1.35rem; color:var(--text-main); font-size:0.92rem; display:flex; flex-direction:column; gap:0.45rem;">
+          <li>Acessar todas as <strong>reclamações armazenadas</strong>, alterar o status (<em>Pendente → Em Análise → Resolvido</em>) e publicar a resposta oficial da gestão;</li>
+          <li>Publicar novas <strong>Atas de Reuniões</strong> e comunicados urgentes no topo do portal;</li>
+          <li>Cadastrar e atualizar o andamento de <strong>Melhorias e Obras</strong> do condomínio;</li>
+          <li>Auditar a base completa de <strong>Moradores Prestadores de Serviço</strong> (visualizando Nome, CPF completo para segurança da portaria, Bloco, Apartamento e Telefone).</li>
+        </ul>
+      </div>
+
+      <div class="proposal-section">
+        <h3>4. Benefícios Diretos para a Gestão Celson Rodrigues</h3>
+        <div class="grid-3" style="margin-top:0.85rem;">
+          <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:1rem; border-radius:8px;">
+            <strong style="color:#166534; display:block; margin-bottom:0.25rem;">✓ Fim de Reclamações Dispersas</strong>
+            <span style="font-size:0.84rem; color:#15803d;">Tudo fica documentado com data, bloco, apartamento e histórico de atendimento.</span>
+          </div>
+          <div style="background:#eff6ff; border:1px solid #bfdbfe; padding:1rem; border-radius:8px;">
+            <strong style="color:#1e40af; display:block; margin-bottom:0.25rem;">✓ Valorização dos Apartamentos</strong>
+            <span style="font-size:0.84rem; color:#1d4ed8;">Um condomínio organizado e digitalizado aumenta a percepção de valor nas vendas e locações.</span>
+          </div>
+          <div style="background:#fffbeb; border:1px solid #fde68a; padding:1rem; border-radius:8px;">
+            <strong style="color:#92400e; display:block; margin-bottom:0.25rem;">✓ Apoio aos Moradores Locais</strong>
+            <span style="font-size:0.84rem; color:#b45309;">Gera renda dentro do próprio Condomínio Quebec com segurança e validação por CPF/Unidade.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:2px dashed var(--border); padding-top:1.75rem; margin-top:2.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <strong style="color:var(--bg-dark); display:block;">Demonstração Funcional 100% Pronta</strong>
+          <span style="font-size:0.86rem; color:var(--text-muted);">O protótipo completo com banco de dados já está em funcionamento para avaliação imediata.</span>
+        </div>
+        <div class="no-print" style="display:flex; gap:0.75rem;">
+          <a href="index.html" class="btn btn-primary">🌐 Abrir Sistema Ao Vivo</a>
+          <button class="btn btn-gold" onclick="window.print()">🖨️ Gerar PDF da Proposta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
