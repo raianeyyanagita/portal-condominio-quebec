@@ -3,672 +3,354 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Condomínio Residencial Quebec | Gestão Síndico Celson Rodrigues - Itaúna/MG</title>
+  <title>Residencial Quebec | Itaúna - MG</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Topbar Institucional Verde & Branco -->
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="topbar-left">
-        <span>📍 <strong>Rua Ênio Pereira de Carvalho, 383</strong> • Parque Jardim Santanense, Itaúna - MG (CEP 35681-312)</span>
-        <span class="topbar-pill">🌿 Identidade Oficial: Verde Claro & Branco • Síndico Celson Rodrigues</span>
-      </div>
-      <div class="topbar-right">
-        <span id="apiStatusPill" class="api-status-pill">
-          <span class="api-status-dot"></span>
-          <span id="apiStatusText">Back-end Ativo & Sincronizado</span>
-        </span>
-        <a href="proposta-sindico.html" style="color:#a7f3d0; text-decoration:none; font-weight:800;">
-          📄 Proposta Executiva para o Síndico →
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navbar Principal -->
+  <!-- Cabeçalho Minimalista & Sofisticado (Com o Símbolo da Folha do Quebec) -->
   <header class="navbar">
     <div class="navbar-inner">
       <div class="brand" onclick="switchTab('apresentacao')">
-        <div class="brand-crest">CQ</div>
+        <div class="brand-crest" id="brandLogoBox" title="Símbolo Oficial Condomínio Residencial Quebec" style="background:#f5f9f6; border-color:#d4e6da;">
+          <!-- Símbolo Oficial da Folha de Bordo Vermelha do Tapete do Condomínio Quebec -->
+          <svg viewBox="0 0 48 48" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 5L20.8 11.8L16.5 9.8L18.2 17.5L12 15.4L13.5 19L8 19.7L12.3 24.8L10.5 27.3L18.3 30L17.3 33.5L22.9 32.5V42H25.1V32.5L30.7 33.5L29.7 30L37.5 27.3L35.7 24.8L40 19.7L34.5 19L36 15.4L29.8 17.5L31.5 9.8L27.2 11.8L24 5Z" fill="#c42126"/>
+          </svg>
+        </div>
         <div class="brand-text">
-          <h1>Condomínio Quebec</h1>
-          <span>Residencial Verde & Branco • Gestão Celson Rodrigues</span>
+          <h1 style="font-family: Georgia, 'Times New Roman', serif; font-size: 1.35rem; color: #144d37; letter-spacing: 0.01em;">Quebec</h1>
+          <span style="font-weight: 700; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: #256f46;">Condomínio Residencial</span>
         </div>
       </div>
 
       <nav class="nav-tabs" aria-label="Navegação Principal">
-        <button class="nav-tab active" data-tab="apresentacao" onclick="switchTab('apresentacao')">
-          🏢 Apresentação
-        </button>
-        <button class="nav-tab" data-tab="melhorias" onclick="switchTab('melhorias')">
-          🛠️ Melhorias <span class="nav-badge" id="badgeMelhorias">5</span>
-        </button>
-        <button class="nav-tab" data-tab="gestao" onclick="switchTab('gestao')">
-          👔 Gestão Celson Rodrigues
-        </button>
-        <button class="nav-tab" data-tab="atas" onclick="switchTab('atas')">
-          📋 Atas <span class="nav-badge" id="badgeAtas">3</span>
-        </button>
-        <button class="nav-tab" data-tab="reclamacoes" onclick="switchTab('reclamacoes')">
-          📣 Reclamações <span class="nav-badge" id="badgeReclamacoes">3</span>
-        </button>
-        <button class="nav-tab" data-tab="servicos" onclick="switchTab('servicos')">
-          🤝 Serviços de Moradores <span class="nav-badge" id="badgeServicos">5</span>
-        </button>
-        <button class="nav-tab admin-tab" data-tab="admin" onclick="switchTab('admin')">
-          🔐 Painel do Síndico
-        </button>
+        <button class="nav-tab active" data-tab="apresentacao" onclick="switchTab('apresentacao')">Início</button>
+        <button class="nav-tab" data-tab="avisos" onclick="switchTab('avisos')">Avisos</button>
+        <button class="nav-tab" data-tab="fechamento" onclick="switchTab('fechamento')">Fechamento Mensal</button>
+        <button class="nav-tab" data-tab="atas" onclick="switchTab('atas')">Atas</button>
+        <button class="nav-tab" data-tab="melhorias" onclick="switchTab('melhorias')">Melhorias</button>
+        <button class="nav-tab" data-tab="servicos" onclick="switchTab('servicos')">Serviços</button>
+        <button class="nav-tab" data-tab="reclamacoes" onclick="switchTab('reclamacoes')">Ouvidoria</button>
+        <button class="nav-tab admin-tab" data-tab="admin" onclick="switchTab('admin')">Área do Síndico</button>
       </nav>
+
+      <!-- Botão rápido Área do Síndico visível no celular -->
+      <button class="btn btn-outline btn-sm mobile-admin-trigger" onclick="switchTab('admin')">
+        🔐 Síndico
+      </button>
     </div>
   </header>
-
-  <!-- Barra de Comunicados Rápidos -->
-  <div class="notice-bar">
-    <div class="notice-bar-inner">
-      <div class="notice-bar-content">
-        <span class="notice-pill" id="latestNoticePriority">Aviso da Gestão</span>
-        <span id="latestNoticeText">
-          <strong>Manutenção Preventiva:</strong> Revisão programada dos portões eletrônicos e interfonia nesta quinta-feira (09h às 11h30) — Síndico Celson Rodrigues.
-        </span>
-      </div>
-      <button class="btn btn-sm btn-outline" onclick="switchTab('atas')">Ver Quadro de Atas & Avisos →</button>
-    </div>
-  </div>
 
   <!-- Conteúdo Principal -->
   <main class="main-container">
 
     <!-- ==========================================
-         ABA 1: APRESENTAÇÃO DO CONDOMÍNIO QUEBEC
+         ABA 1: INÍCIO (CLEAN, SOFISTICADO E FUNCIONAL)
          ========================================== -->
     <section id="tab-apresentacao" class="tab-panel active">
-      <div class="hero">
+
+      <!-- Hero Clean -->
+      <div class="hero-clean">
         <div>
-          <div class="hero-tag">
-            <span>🌿 Condomínio Residencial Quebec • Parque Jardim Santanense, Itaúna/MG</span>
+          <div class="hero-badge">
+            <svg viewBox="0 0 48 48" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 5L20.8 11.8L16.5 9.8L18.2 17.5L12 15.4L13.5 19L8 19.7L12.3 24.8L10.5 27.3L18.3 30L17.3 33.5L22.9 32.5V42H25.1V32.5L30.7 33.5L29.7 30L37.5 27.3L35.7 24.8L40 19.7L34.5 19L36 15.4L29.8 17.5L31.5 9.8L27.2 11.8L24 5Z" fill="#c42126"/>
+            </svg>
+            <span>Quebec • Condomínio Residencial • Nº 383</span>
           </div>
-          <h2>Seu Lar com Organização, Segurança e Transparência</h2>
+          <h2>Bem-vindo ao Portal Oficial dos Moradores</h2>
           <p>
-            Com sua tradicional arquitetura em <strong>verde claro e branco</strong> na <strong>Rua Ênio Pereira de Carvalho, nº 383</strong>, o Condomínio Quebec conecta moradores, serviços internos, atas de assembleia e ouvidoria digital sob a gestão do Síndico <strong>Celson Rodrigues</strong>.
+            Acompanhe os comunicados de manutenção, consulte os documentos em PDF do fechamento mensal e das atas de assembleia, veja as melhorias realizadas e acesse o guia de serviços dos moradores.
           </p>
           <div class="hero-actions">
-            <button class="btn btn-white" onclick="switchTab('reclamacoes')">
-              📣 Registrar Reclamação / Ouvidoria
+            <button class="btn btn-primary" onclick="switchTab('fechamento')">
+              Ver Fechamento Mensal (PDF)
             </button>
-            <button class="btn btn-gold" onclick="switchTab('servicos')">
-              🤝 Guia de Serviços dos Moradores
+            <button class="btn btn-outline" onclick="switchTab('avisos')">
+              Mural de Avisos
             </button>
-            <button class="btn btn-outline-light" onclick="switchTab('atas')">
-              📋 Ler Atas de Reuniões
+            <button class="btn btn-outline" onclick="switchTab('atas')">
+              Atas de Assembleia
             </button>
+          </div>
+
+          <div class="hero-meta-strip">
+            <div class="hero-meta-item">
+              <span>Unidades</span>
+              <strong>176 Apartamentos</strong>
+            </div>
+            <div class="hero-meta-item">
+              <span>Estrutura</span>
+              <strong>Blocos 01 a 11 (Aptos 01 a 16)</strong>
+            </div>
+            <div class="hero-meta-item">
+              <span>Gestão</span>
+              <strong>Síndico Celson Rodrigues</strong>
+            </div>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <h3>🏛️ Identidade do Condomínio</h3>
-            <span class="color-swatch-pill">
-              <span class="swatch-dots">
-                <span class="swatch-dot-green"></span>
-                <span class="swatch-dot-white"></span>
-              </span>
-              Verde Claro & Branco
-            </span>
-          </div>
-          <ul class="hero-info-list">
-            <li>
-              <span>Condomínio</span>
-              <strong>Residencial Quebec</strong>
-            </li>
-            <li>
-              <span>Endereço</span>
-              <strong>Rua Ênio Pereira de Carvalho, 383</strong>
-            </li>
-            <li>
-              <span>Bairro / Cidade</span>
-              <strong>Parque Jardim Santanense • Itaúna/MG</strong>
-            </li>
-            <li>
-              <span>CEP Oficial</span>
-              <strong>35681-312</strong>
-            </li>
-            <li>
-              <span>Unidades / Blocos</span>
-              <strong>Aptos 2 Quartos (45–48 m²) + 1 Vaga</strong>
-            </li>
-            <li>
-              <span>Síndico Responsável</span>
-              <strong style="color:var(--green-deep);">Celson Rodrigues</strong>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Indicadores Rápidos -->
-      <div class="kpi-grid">
-        <div class="kpi-card" onclick="switchTab('melhorias')" style="cursor:pointer;">
-          <div class="kpi-icon">🛠️</div>
-          <div class="kpi-data">
-            <h4 id="kpiMelhorias">5</h4>
-            <p>Obras & Melhorias da Gestão</p>
-          </div>
-        </div>
-        <div class="kpi-card" onclick="switchTab('atas')" style="cursor:pointer;">
-          <div class="kpi-icon">📋</div>
-          <div class="kpi-data">
-            <h4 id="kpiAtas">3</h4>
-            <p>Atas de Reuniões Publicadas</p>
-          </div>
-        </div>
-        <div class="kpi-card" onclick="switchTab('reclamacoes')" style="cursor:pointer;">
-          <div class="kpi-icon">📣</div>
-          <div class="kpi-data">
-            <h4 id="kpiReclamacoes">3 Reg.</h4>
-            <p>Ouvidoria Digital Armazenada</p>
-          </div>
-        </div>
-        <div class="kpi-card" onclick="switchTab('servicos')" style="cursor:pointer;">
-          <div class="kpi-icon">🤝</div>
-          <div class="kpi-data">
-            <h4 id="kpiServicos">5</h4>
-            <p>Moradores Prestadores de Serviço</p>
+        <div class="hero-photo-frame">
+          <img id="heroEntranceImg" src="entrada-real-quebec.jpg" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='assets/entrada-real-quebec.jpg';}" alt="Portaria do Condomínio Residencial Quebec" />
+          <div class="hero-photo-caption">
+            <strong>Portaria Principal — Residencial Quebec</strong>
+            <span class="status-badge status-concluido">Blocos 01 a 11</span>
           </div>
         </div>
       </div>
 
-      <!-- Mapa Esquemático Interativo dos Blocos em Verde Claro & Branco -->
-      <div class="blocks-showcase">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <!-- Acesso Rápido Clean -->
+      <div class="quick-links-row">
+        <button class="quick-card" onclick="switchTab('avisos')">
+          <div class="quick-card-icon">📢</div>
           <div>
-            <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--green-medium); letter-spacing:0.08em;">
-              Arquitetura Padronizada em Verde Claro & Branco
-            </span>
-            <h3 style="font-family:'Outfit',sans-serif; font-size:1.45rem; color:var(--green-forest); margin-top:0.2rem;">
-              🏢 Visão Geral dos Blocos Residenciais do Condomínio Quebec
-            </h3>
+            <strong>Mural de Avisos</strong>
+            <span>Dedetização, limpeza de esgoto e comunicados</span>
           </div>
-          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-            <button class="btn btn-sm btn-primary" onclick="switchTab('servicos')">Ver Prestadores por Bloco</button>
-            <button class="btn btn-sm btn-outline" onclick="switchTab('reclamacoes')">Abrir Chamado por Bloco</button>
+        </button>
+        <button class="quick-card" onclick="switchTab('fechamento')">
+          <div class="quick-card-icon">📄</div>
+          <div>
+            <strong>Fechamento Mensal</strong>
+            <span>Visualizar arquivo PDF da prestação de contas</span>
           </div>
-        </div>
-
-        <div class="blocks-grid">
-          <div class="block-tower active" onclick="selectBlockInfo('Bloco A', '100% Iluminação LED e Pintura Verde Claro & Branco revisada', this)">
-            <div class="block-windows">
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-            </div>
-            <h4>Bloco A</h4>
-            <span>Aptos 101 a 404</span>
+        </button>
+        <button class="quick-card" onclick="switchTab('atas')">
+          <div class="quick-card-icon">📋</div>
+          <div>
+            <strong>Atas de Reunião</strong>
+            <span>Visualizar PDF registrado em cartório</span>
           </div>
-          <div class="block-tower" onclick="selectBlockInfo('Bloco B', 'Sensores de presença novos e fachada Verde Claro & Branco revitalizada', this)">
-            <div class="block-windows">
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-            </div>
-            <h4>Bloco B</h4>
-            <span>Aptos 101 a 404</span>
+        </button>
+        <button class="quick-card" onclick="switchTab('reclamacoes')">
+          <div class="quick-card-icon">🔒</div>
+          <div>
+            <strong>Ouvidoria Sigilosa</strong>
+            <span>Mensagem restrita ao painel do Síndico</span>
           </div>
-          <div class="block-tower" onclick="selectBlockInfo('Bloco C', 'Câmeras CFTV Full HD cobrindo entrada e estacionamento frontal', this)">
-            <div class="block-windows">
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-            </div>
-            <h4>Bloco C</h4>
-            <span>Aptos 101 a 404</span>
-          </div>
-          <div class="block-tower" onclick="selectBlockInfo('Bloco D', 'Reservatório higienizado e jardins laterais revitalizados', this)">
-            <div class="block-windows">
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-            </div>
-            <h4>Bloco D</h4>
-            <span>Aptos 101 a 404</span>
-          </div>
-          <div class="block-tower" onclick="selectBlockInfo('Bloco E', 'Demarcação de vagas de garagem e interfonia revisada', this)">
-            <div class="block-windows">
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-            </div>
-            <h4>Bloco E</h4>
-            <span>Aptos 101 a 404</span>
-          </div>
-          <div class="block-tower" onclick="selectBlockInfo('Bloco F', 'Manutenção preventiva em dia • Gestão Celson Rodrigues', this)">
-            <div class="block-windows">
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-              <div class="block-window"></div><div class="block-window"></div>
-            </div>
-            <h4>Bloco F</h4>
-            <span>Aptos 101 a 404</span>
-          </div>
-        </div>
-
-        <div id="blockDetailBanner" style="margin-top:1.15rem; background:#ffffff; border:1px solid var(--border-strong); border-radius:12px; padding:0.85rem 1.2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
-          <span style="font-size:0.9rem; color:var(--green-forest);">
-            🏢 <strong>Bloco A Selecionado:</strong> 100% Iluminação LED e Pintura Verde Claro & Branco revisada.
-          </span>
-          <span style="font-size:0.8rem; color:var(--green-medium); font-weight:700;">✓ Monitorado 24h pela Portaria</span>
-        </div>
+        </button>
       </div>
 
-      <!-- Galeria de Fotos do Condomínio em Verde Claro & Branco -->
-      <div class="card" style="margin-bottom: 2.5rem;">
-        <div class="section-header" style="margin-bottom: 0.75rem;">
+      <!-- Resumo de Avisos Importantes na Home (Dedetização, Caixa de Esgoto, etc.) -->
+      <div style="margin-bottom: 2.5rem;">
+        <div class="section-header">
           <div class="section-header-left">
-            <span class="eyebrow">Arquitetura Verde Claro & Branco</span>
-            <h2>Galeria do Condomínio Residencial Quebec</h2>
-            <p>Fachada, blocos residenciais em verde claro e branco, estacionamento demarcado e jardins internos na Rua Ênio Pereira de Carvalho, 383.</p>
+            <span class="eyebrow">Comunicados da Administração</span>
+            <h2>Avisos e Cronograma de Manutenções</h2>
           </div>
-          <div style="display:flex; gap:0.65rem; flex-wrap:wrap;">
-            <label class="btn btn-sm btn-outline" style="cursor:pointer;">
-              📸 Adicionar Foto do Seu Computador/Celular
-              <input type="file" accept="image/*" style="display:none;" onchange="handleCustomPhotoUpload(event)" />
-            </label>
-            <button class="btn btn-sm btn-primary" onclick="switchTab('melhorias')">Ver Obras & Melhorias →</button>
-          </div>
+          <button class="btn btn-outline btn-sm" onclick="switchTab('avisos')">Ver todos os avisos →</button>
         </div>
-
-        <div class="gallery-grid" id="condoGallery">
-          <div class="gallery-item">
-            <img src="assets/fachada-quebec.png" onerror="this.src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80'" alt="Fachada e Portaria Condomínio Quebec em Verde Claro e Branco" />
-            <div class="gallery-caption">
-              <strong>Portaria & Blocos em Verde Claro com Branco</strong>
-              <span>Acesso principal na Rua Ênio Pereira de Carvalho, 383 • Itaúna/MG</span>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/blocos-patio.png" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80'" alt="Pátio e Estacionamento entre os Blocos Verde Claro e Branco" />
-            <div class="gallery-caption">
-              <strong>Pátio Interno & Vagas Demarcadas</strong>
-              <span>Blocos residenciais em verde claro e branco com iluminação LED</span>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/convivencia-jardim.png" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80'" alt="Jardins e Convivência Condomínio Quebec" />
-            <div class="gallery-caption">
-              <strong>Paisagismo, Câmeras CFTV & Convivência</strong>
-              <span>Ambiente familiar tranquilo no bairro Parque Jardim Santanense</span>
-            </div>
-          </div>
-        </div>
+        <div id="homeAvisosGrid" class="grid-3"></div>
       </div>
 
-      <!-- Sobre o Condomínio + Mapa Google Maps -->
+      <!-- Seletor Minimalista dos Blocos 01 ao 11 e Localização -->
       <div class="grid-2">
         <div class="card">
-          <h3 class="card-title">🌿 Estrutura e Qualidade de Vida no Quebec</h3>
-          <p style="color: var(--text-body); margin-bottom: 1rem;">
-            Localizado no bairro <strong>Parque Jardim Santanense</strong> em Itaúna – MG, o <strong>Condomínio Residencial Quebec</strong> é referência de tranquilidade e ótimo custo-benefício na região. Seus blocos padronizados na cor <strong>verde claro com branco</strong> abrigam apartamentos arejados de 2 quartos, sala, cozinha, banheiro, área de serviço e vaga de estacionamento.
+          <span style="font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--green-medium); letter-spacing:0.06em;">
+            Organização Interna
+          </span>
+          <h3 class="card-title" style="margin-top:0.2rem;">Blocos 01 ao 11 (Apartamentos 01 ao 16)</h3>
+          <p style="font-size:0.87rem; color:var(--text-body); margin-bottom:0.85rem;">
+            Selecione seu bloco para consultar informações de manutenção, limpeza ou registrar um chamado para a administração:
           </p>
 
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-item-icon">🛡️</div>
-              <div>
-                <strong>Segurança & CFTV Full HD</strong>
-                <span>Portaria controlada e câmeras de alta resolução nos acessos e pátio.</span>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-item-icon">🚗</div>
-              <div>
-                <strong>Vagas Numeradas</strong>
-                <span>Estacionamento interno organizado com iluminação noturna em LED.</span>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-item-icon">🎨</div>
-              <div>
-                <strong>Conservação Verde & Branco</strong>
-                <span>Revitalização contínua da pintura característica dos blocos e jardins.</span>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-item-icon">🤝</div>
-              <div>
-                <strong>Comunidade Conectada</strong>
-                <span>Ouvidoria direta com o Síndico Celson Rodrigues e guia de serviços.</span>
-              </div>
-            </div>
+          <div class="blocks-pill-grid" id="blocksInteractiveGrid"></div>
+
+          <div id="blockDetailBanner" style="margin-top:1rem; padding:0.85rem 1rem; background:var(--bg-soft-green); border-radius:10px; font-size:0.84rem; color:var(--green-forest); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+            <span><strong>Bloco 01:</strong> Apartamentos 01 ao 16 • Limpeza, jardinagem e CFTV ativos.</span>
+            <button class="btn btn-sm btn-outline" onclick="switchTab('reclamacoes')">Solicitar reparo</button>
           </div>
         </div>
 
         <div class="card">
-          <h3 class="card-title">📍 Mapa e Street View — Rua Ênio Pereira de Carvalho, 383</h3>
-          <p style="color: var(--text-body); font-size: 0.9rem; margin-bottom: 0.9rem;">
-            Bairro <strong>Parque Jardim Santanense</strong>, Itaúna - MG • CEP 35681-312.
+          <span style="font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--green-medium); letter-spacing:0.06em;">
+            Localização Oficial
+          </span>
+          <h3 class="card-title" style="margin-top:0.2rem;">Rua Ênio Pereira de Carvalho, 383</h3>
+          <p style="font-size:0.87rem; color:var(--text-body); margin-bottom:0.85rem;">
+            Bairro Parque Jardim Santanense • Itaúna/MG • CEP 35681-312 • CNPJ 20.410.595/0001-60
           </p>
           <div class="map-frame-wrapper">
             <iframe
-              title="Mapa Condomínio Residencial Quebec - Rua Ênio Pereira de Carvalho, 383, Itaúna MG"
+              title="Localização Condomínio Residencial Quebec"
               src="https://www.google.com/maps?q=Rua+%C3%8Anio+Pereira+de+Carvalho,+383,+Ita%C3%BAna+-+MG,+35681-312&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
+              loading="lazy">
             </iframe>
           </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.95rem; flex-wrap:wrap; gap:0.5rem;">
-            <span style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">📌 Fácil acesso a Santanense e vias principais de Itaúna</span>
-            <a class="btn btn-sm btn-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rua+%C3%8Anio+Pereira+de+Carvalho,+383,+Ita%C3%BAna+-+MG">
-              Ver Fachada no Google Street View ↗
-            </a>
+        </div>
+      </div>
+
+      <!-- Galeria Clean -->
+      <div style="margin-top: 2.5rem;">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="eyebrow">Estrutura Residencial</span>
+            <h2>Imagens do Condomínio</h2>
           </div>
         </div>
+        <div class="gallery-grid" id="condoGallery"></div>
       </div>
     </section>
 
     <!-- ==========================================
-         ABA 2: MELHORIAS E OBRAS DO CONDOMÍNIO
+         ABA 2: MURAL DE AVISOS (DEDETIZAÇÃO, LIMPEZA CAIXINHA DE ESGOTO, ETC.)
+         ========================================== -->
+    <section id="tab-avisos" class="tab-panel">
+      <div class="section-header">
+        <div class="section-header-left">
+          <span class="eyebrow">Mural Oficial • Inserido pela Administração</span>
+          <h2>Avisos, Dedetização e Manutenções Preventivas</h2>
+          <p>Fique por dentro das datas de dedetização, limpeza das caixinhas de esgoto e gordura, manutenções nos blocos e comunicados da gestão.</p>
+        </div>
+      </div>
+
+      <div id="avisosFullGrid" class="grid-2"></div>
+    </section>
+
+    <!-- ==========================================
+         ABA 3: FECHAMENTO MENSAL (VISUALIZAÇÃO LIMPA EM PDF!)
+         ========================================== -->
+    <section id="tab-fechamento" class="tab-panel">
+      <div class="section-header">
+        <div class="section-header-left">
+          <span class="eyebrow">Prestação de Contas • Visualização em PDF</span>
+          <h2>Fechamento Mensal do Condomínio</h2>
+          <p>Os moradores podem visualizar e baixar o arquivo PDF oficial de cada mês diretamente abaixo. <em>A inserção de novos fechamentos é realizada exclusivamente pelo Administrador.</em></p>
+        </div>
+      </div>
+
+      <!-- Lista de Documentos PDF de Fechamento Mensal -->
+      <div id="fechamentosPublicContainer"></div>
+
+      <!-- Visualizador de PDF Integrado na Tela -->
+      <div id="fechamentoPdfViewerContainer" class="pdf-viewer-box">
+        <div class="pdf-viewer-header">
+          <div>
+            <strong id="fechamentoViewerTitle" style="color:var(--green-forest); font-size:0.95rem;">
+              📄 Visualizando: Fechamento Mensal Oficial (PDF)
+            </strong>
+            <span style="display:block; font-size:0.76rem; color:var(--text-muted);">
+              Condomínio Residencial Quebec • Contas Sicoob & Cora
+            </span>
+          </div>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <a id="fechamentoOpenTabBtn" href="fechamento-mensal-quebec.pdf" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+              Abrir PDF em Tela Cheia ↗
+            </a>
+            <a id="fechamentoDownloadPdfBtn" href="fechamento-mensal-quebec.pdf" download="Fechamento_Mensal_Condominio_Quebec.pdf" class="btn btn-primary btn-sm">
+              Baixar PDF
+            </a>
+          </div>
+        </div>
+        <iframe id="fechamentoPdfIframe" class="pdf-viewer-iframe" src="fechamento-mensal-quebec.pdf" title="PDF do Fechamento Mensal"></iframe>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ABA 4: ATAS DE ASSEMBLEIA (VISUALIZAÇÃO LIMPA EM PDF!)
+         ========================================== -->
+    <section id="tab-atas" class="tab-panel">
+      <div class="section-header">
+        <div class="section-header-left">
+          <span class="eyebrow">Documentação Oficial Registrada em Cartório</span>
+          <h2>Atas de Reunião e Assembleia</h2>
+          <p>Visualize na tela ou baixe o arquivo PDF escaneado das Atas de Assembleia do Condomínio Residencial Quebec.</p>
+        </div>
+      </div>
+
+      <!-- Lista de Atas em PDF -->
+      <div id="atasListContainer"></div>
+
+      <!-- Visualizador de PDF da Ata Integrado na Tela -->
+      <div id="ataPdfViewerContainer" class="pdf-viewer-box">
+        <div class="pdf-viewer-header">
+          <div>
+            <strong id="ataViewerTitle" style="color:var(--green-forest); font-size:0.95rem;">
+              📋 Visualizando: Ata da Assembleia Geral Extraordinária de 28/08/2025 (PDF)
+            </strong>
+            <span style="display:block; font-size:0.76rem; color:var(--text-muted);">
+              1º Ofício de Registro de Títulos e Documentos de Itaúna/MG • Registro Nº 31691
+            </span>
+          </div>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <a id="ataOpenTabBtn" href="ata-assembleia-28-08-2025.pdf" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+              Abrir PDF em Tela Cheia ↗
+            </a>
+            <a id="ataDownloadPdfBtn" href="ata-assembleia-28-08-2025.pdf" download="Ata_Assembleia_28_08_2025_Quebec.pdf" class="btn btn-primary btn-sm">
+              Baixar PDF
+            </a>
+          </div>
+        </div>
+        <iframe id="ataPdfIframe" class="pdf-viewer-iframe" src="ata-assembleia-28-08-2025.pdf" title="PDF da Ata de Assembleia"></iframe>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ABA 5: MELHORIAS REALIZADAS
          ========================================== -->
     <section id="tab-melhorias" class="tab-panel">
       <div class="section-header">
         <div class="section-header-left">
-          <span class="eyebrow">Valorização Patrimonial em Ação</span>
-          <h2>Melhorias, Pintura Verde & Branco e Obras Realizadas</h2>
-          <p>Acompanhe com total transparência cada investimento realizado, em andamento ou planejado pela gestão do Síndico <strong>Celson Rodrigues</strong>.</p>
+          <span class="eyebrow">Valorização Patrimonial</span>
+          <h2>Melhorias e Obras no Condomínio</h2>
+          <p>Obras e benfeitorias executadas pela gestão do Síndico Celson Rodrigues e Sub-Síndico Sidney Loiola.</p>
         </div>
         <div class="filter-bar">
           <button class="filter-btn active" onclick="filterMelhorias('Todas', this)">Todas</button>
           <button class="filter-btn" onclick="filterMelhorias('Concluído', this)">Concluídas</button>
           <button class="filter-btn" onclick="filterMelhorias('Em Andamento', this)">Em Andamento</button>
-          <button class="filter-btn" onclick="filterMelhorias('Planejado', this)">Planejadas</button>
         </div>
       </div>
 
-      <div id="melhoriasGrid" class="grid-3"></div>
+      <div id="melhoriasGrid" class="grid-2"></div>
     </section>
 
     <!-- ==========================================
-         ABA 3: GESTÃO SÍNDICO CELSON RODRIGUES
-         ========================================== -->
-    <section id="tab-gestao" class="tab-panel">
-      <div class="sindico-hero">
-        <div class="sindico-avatar">
-          CR
-          <span>Síndico</span>
-        </div>
-        <div>
-          <span class="topbar-pill" style="margin-bottom:0.75rem;">Gestão Participativa & Transparente • Condomínio Quebec</span>
-          <h2 style="font-family:'Outfit',sans-serif; font-size:2.15rem; font-weight:800; margin-bottom:0.65rem;">Síndico: Celson Rodrigues</h2>
-          <p style="color:#ecfdf5; font-size:1.02rem; max-width:780px; margin-bottom:1.35rem;">
-            “Nosso compromisso no <strong>Condomínio Residencial Quebec</strong> é zelar pelo patrimônio de cada família da Rua Ênio Pereira de Carvalho, 383 com responsabilidade financeira, conservação impecável dos nossos blocos verde claro e branco, segurança 24h e diálogo aberto com todos os moradores.”
-          </p>
-          <div style="display:flex; gap:0.85rem; flex-wrap:wrap;">
-            <button class="btn btn-white" onclick="switchTab('reclamacoes')">📣 Enviar Mensagem / Ouvidoria ao Síndico</button>
-            <button class="btn btn-outline-light" onclick="switchTab('atas')">📋 Consultar Atas & Prestação de Contas</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-3" style="margin-bottom:2rem;">
-        <div class="card">
-          <h3 class="card-title">📊 Transparência Financeira</h3>
-          <p style="color:var(--text-body); font-size:0.92rem;">
-            Todas as receitas, despesas ordinárias, fundo de reserva e orçamentos de melhorias são apresentados em assembleia e registrados nas atas oficiais disponíveis neste portal.
-          </p>
-        </div>
-        <div class="card">
-          <h3 class="card-title">🎨 Conservação & Segurança</h3>
-          <p style="color:var(--text-body); font-size:0.92rem;">
-            Manutenção da pintura verde claro e branco dos blocos, limpeza semestral dos reservatórios, portões eletrônicos revisados, câmeras Full HD e iluminação em LED.
-          </p>
-        </div>
-        <div class="card">
-          <h3 class="card-title">🤝 Apoio aos Moradores</h3>
-          <p style="color:var(--text-body); font-size:0.92rem;">
-            Incentivo à boa convivência entre os blocos e criação do <strong>Guia de Serviços dos Moradores</strong>, fortalecendo os profissionais que moram no próprio Condomínio Quebec.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3 class="card-title">📌 Pilares da Gestão Celson Rodrigues</h3>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.95rem; margin-top:1rem;">
-            <li class="feature-item">
-              <span class="feature-item-icon">1️⃣</span>
-              <div>
-                <strong>Ouvidoria Digital com Protocolo</strong>
-                <span>Nenhuma reclamação se perde em grupos de WhatsApp: toda solicitação fica armazenada no sistema com resposta oficial do Síndico Celson Rodrigues.</span>
-              </div>
-            </li>
-            <li class="feature-item">
-              <span class="feature-item-icon">2️⃣</span>
-              <div>
-                <strong>Responsabilidade nos Orçamentos</strong>
-                <span>Toda melhoria para o Condomínio Quebec passa por cotação prévia para entregar obras de qualidade mantendo o equilíbrio da taxa condominial.</span>
-              </div>
-            </li>
-            <li class="feature-item">
-              <span class="feature-item-icon">3️⃣</span>
-              <div>
-                <strong>Ordem, Harmonia e Regimento Interno</strong>
-                <span>Orientação justa sobre horários de silêncio, uso correto das vagas demarcadas de estacionamento e conservação das áreas comuns.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">📞 Atendimento da Administração</h3>
-          <p style="color:var(--text-body); font-size:0.92rem; margin-bottom:1.15rem;">
-            Canais diretos de contato com a gestão do Síndico <strong>Celson Rodrigues</strong> no Condomínio Quebec:
-          </p>
-          <div style="display:flex; flex-direction:column; gap:0.9rem;">
-            <div class="feature-item">
-              <span class="feature-item-icon">👤</span>
-              <div>
-                <strong>Síndico Responsável</strong>
-                <span>Celson Rodrigues • Administração Condomínio Residencial Quebec</span>
-              </div>
-            </div>
-            <div class="feature-item">
-              <span class="feature-item-icon">📍</span>
-              <div>
-                <strong>Endereço Oficial</strong>
-                <span>Rua Ênio Pereira de Carvalho, 383 – Parque Jardim Santanense, Itaúna - MG (CEP 35681-312)</span>
-              </div>
-            </div>
-            <div class="feature-item">
-              <span class="feature-item-icon">🕒</span>
-              <div>
-                <strong>Horário de Atendimento Administrativo</strong>
-                <span>Segunda a Sexta: 08h às 18h | Sábado: 08h às 12h</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         ABA 4: ATAS DE REUNIÕES E ASSEMBLEIAS
-         ========================================== -->
-    <section id="tab-atas" class="tab-panel">
-      <div class="section-header">
-        <div class="section-header-left">
-          <span class="eyebrow">Documentação Oficial & Transparência</span>
-          <h2>Atas de Reuniões, Assembleias e Comunicados</h2>
-          <p>Consulte e imprima as atas das assembleias ordinárias e extraordinárias publicadas pelo Síndico <strong>Celson Rodrigues</strong>.</p>
-        </div>
-        <div style="display:flex; gap:0.65rem; align-items:center; flex-wrap:wrap;">
-          <input type="text" id="searchAtasInput" class="form-control" placeholder="🔍 Buscar ata por assunto ou data..." oninput="renderAtas()" style="min-width:260px;" />
-          <button class="btn btn-primary" onclick="switchTab('admin')">+ Publicar Nova Ata (Síndico)</button>
-        </div>
-      </div>
-
-      <div id="atasListContainer"></div>
-    </section>
-
-    <!-- ==========================================
-         ABA 5: RECLAMAÇÕES, SUGESTÕES E OUVIDORIA
-         ========================================== -->
-    <section id="tab-reclamacoes" class="tab-panel">
-      <div class="section-header">
-        <div class="section-header-left">
-          <span class="eyebrow">Canal Direto com o Síndico Celson Rodrigues</span>
-          <h2>Livro Digital de Reclamações, Ocorrências e Sugestões</h2>
-          <p>Registre sua solicitação abaixo. Todos os chamados ficam <strong>armazenados no banco de dados</strong> com protocolo para acompanhamento e providências da gestão.</p>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <!-- Formulário de Registro de Reclamação -->
-        <div class="card">
-          <h3 class="card-title">📝 Registrar Reclamação ou Sugestão</h3>
-          <p style="font-size:0.88rem; color:var(--text-body); margin-bottom:1.25rem;">
-            Preencha os dados da sua unidade para que o Síndico Celson Rodrigues possa analisar e responder sua solicitação.
-          </p>
-
-          <form id="formReclamacao" onsubmit="handleCreateReclamacao(event)">
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="recNome">Nome Completo do Morador *</label>
-                <input type="text" id="recNome" class="form-control" required placeholder="Ex.: João Paulo Ferreira" />
-              </div>
-              <div class="form-group">
-                <label for="recCelular">Celular / WhatsApp *</label>
-                <input type="text" id="recCelular" class="form-control" required placeholder="(37) 99999-9999" oninput="maskPhone(this)" />
-              </div>
-              <div class="form-group">
-                <label for="recBloco">Bloco *</label>
-                <select id="recBloco" class="form-control" required>
-                  <option value="">Selecione o Bloco...</option>
-                  <option value="Bloco A">Bloco A</option>
-                  <option value="Bloco B">Bloco B</option>
-                  <option value="Bloco C">Bloco C</option>
-                  <option value="Bloco D">Bloco D</option>
-                  <option value="Bloco E">Bloco E</option>
-                  <option value="Bloco F">Bloco F</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="recApto">Número do Apartamento *</label>
-                <input type="text" id="recApto" class="form-control" required placeholder="Ex.: 102, 204, 301..." />
-              </div>
-              <div class="form-group">
-                <label for="recCategoria">Categoria da Ocorrência *</label>
-                <select id="recCategoria" class="form-control" required>
-                  <option value="Manutenção / Estrutura">Manutenção / Iluminação / Estrutura</option>
-                  <option value="Barulho / Lei do Silêncio">Barulho / Convivência / Silêncio</option>
-                  <option value="Garagem / Estacionamento">Garagem / Estacionamento</option>
-                  <option value="Limpeza / Conservação">Limpeza / Conservação dos Blocos</option>
-                  <option value="Portaria / Segurança">Portaria / Câmeras / Segurança</option>
-                  <option value="Sugestão de Melhoria">Sugestão de Melhoria para o Condomínio</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="recUrgencia">Nível de Prioridade *</label>
-                <select id="recUrgencia" class="form-control" required>
-                  <option value="Média">Média (Rotina)</option>
-                  <option value="Alta">Alta (Requer atenção rápida)</option>
-                  <option value="Baixa">Baixa / Sugestão</option>
-                </select>
-              </div>
-              <div class="form-group full">
-                <label for="recAssunto">Título / Resumo da Ocorrência *</label>
-                <input type="text" id="recAssunto" class="form-control" required placeholder="Ex.: Lâmpada queimada no corredor do 2º andar" />
-              </div>
-              <div class="form-group full">
-                <label for="recMensagem">Descrição Detalhada *</label>
-                <textarea id="recMensagem" class="form-control" required placeholder="Descreva os detalhes da reclamação, local exato, horário ou sugestão para análise do síndico..."></textarea>
-              </div>
-              <div class="form-group full" style="margin-bottom:0.5rem;">
-                <label style="display:flex; align-items:center; gap:0.55rem; font-weight:600; cursor:pointer;">
-                  <input type="checkbox" id="recPrivado" />
-                  <span>Manter meu nome visível <strong>apenas para o Síndico Celson Rodrigues</strong> no mural público (Modo Sigiloso)</span>
-                </label>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">
-              📨 Enviar e Armazenar Reclamação com Protocolo
-            </button>
-          </form>
-        </div>
-
-        <!-- Histórico Armazenado de Reclamações e Respostas -->
-        <div>
-          <div class="card" style="margin-bottom:1.25rem; background:var(--bg-soft-green);">
-            <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
-              <div>
-                <h3 style="font-size:1.05rem; color:var(--green-forest);">🗂️ Chamados Armazenados & Respostas do Síndico</h3>
-                <p style="font-size:0.82rem; color:var(--text-body);">Acompanhe o status das solicitações e os pareceres oficiais de Celson Rodrigues.</p>
-              </div>
-              <select id="filterRecStatus" class="form-control" style="width:auto;" onchange="renderReclamacoes()">
-                <option value="Todos">Todos os Status</option>
-                <option value="Pendente">Pendentes</option>
-                <option value="Em Análise">Em Análise</option>
-                <option value="Resolvido">Resolvidos</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="reclamacoesListContainer"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         ABA 6: SERVIÇOS PRESTADOS PELOS MORADORES
+         ABA 6: SERVIÇOS DOS MORADORES
          ========================================== -->
     <section id="tab-servicos" class="tab-panel">
       <div class="section-header">
         <div class="section-header-left">
-          <span class="eyebrow">Economia Colaborativa entre Vizinhos</span>
-          <h2>Guia de Serviços & Profissionais do Condomínio Quebec</h2>
-          <p>Valorize quem mora aqui! Encontre serviços prestados pelos próprios moradores ou faça seu cadastro básico com <strong>Nome, CPF, Celular, Bloco, Número do Apartamento e Serviço Prestado</strong>.</p>
+          <span class="eyebrow">Comunidade Quebec • Blocos 01 ao 11</span>
+          <h2>Guia de Serviços dos Moradores</h2>
+          <p>Encontre profissionais que moram no condomínio ou cadastre seu serviço preenchendo Nome, CPF, Celular, Bloco, Apartamento e Serviço Prestado.</p>
         </div>
-        <button class="btn btn-primary" onclick="document.getElementById('boxCadastroServico').scrollIntoView({behavior:'smooth'})">
-          + Cadastrar Meu Serviço de Morador
+        <button class="btn btn-primary btn-sm" onclick="document.getElementById('boxCadastroServico').scrollIntoView({behavior:'smooth'})">
+          + Cadastrar Meu Serviço
         </button>
       </div>
 
-      <!-- Barra de Pesquisa e Filtro de Categorias de Serviços -->
-      <div class="card" style="margin-bottom: 1.85rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
-        <input type="text" id="searchServicosInput" class="form-control" placeholder="🔍 Buscar por serviço, nome do morador ou bloco (ex: eletricista, bolo, manicure, aula)..." oninput="renderServicos()" style="flex:1; min-width:260px;" />
+      <div class="card" style="margin-bottom: 1.5rem; padding:1.1rem 1.35rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
+        <input type="text" id="searchServicosInput" class="form-control" placeholder="Buscar por serviço, nome ou bloco..." oninput="renderServicos()" style="flex:1; min-width:240px;" />
         <div class="filter-bar">
-          <button class="filter-btn active" onclick="filterServicosCat('Todas', this)">Todas Categorias</button>
-          <button class="filter-btn" onclick="filterServicosCat('Alimentação & Confeitaria', this)">🍲 Alimentação</button>
-          <button class="filter-btn" onclick="filterServicosCat('Manutenção & Reparos', this)">🔧 Manutenção</button>
-          <button class="filter-btn" onclick="filterServicosCat('Beleza & Estética', this)">💅 Beleza</button>
-          <button class="filter-btn" onclick="filterServicosCat('Tecnologia & Informática', this)">💻 Tecnologia</button>
-          <button class="filter-btn" onclick="filterServicosCat('Educação & Aulas', this)">📚 Educação</button>
+          <button class="filter-btn active" onclick="filterServicosCat('Todas', this)">Todos</button>
+          <button class="filter-btn" onclick="filterServicosCat('Alimentação & Confeitaria', this)">Alimentação</button>
+          <button class="filter-btn" onclick="filterServicosCat('Manutenção & Reparos', this)">Manutenção</button>
+          <button class="filter-btn" onclick="filterServicosCat('Beleza & Estética', this)">Beleza</button>
+          <button class="filter-btn" onclick="filterServicosCat('Outros Serviços', this)">Outros</button>
         </div>
       </div>
 
-      <!-- Vitrine de Serviços dos Moradores -->
-      <div id="servicosGrid" class="grid-3" style="margin-bottom: 2.75rem;"></div>
+      <div id="servicosGrid" class="grid-3" style="margin-bottom: 2.25rem;"></div>
 
-      <!-- Formulário de Cadastro Básico do Morador Prestador de Serviço -->
-      <div id="boxCadastroServico" class="card" style="border: 2px solid var(--green-primary); background: linear-gradient(180deg, #ffffff 0%, #f2fbf6 100%);">
-        <div class="section-header" style="margin-bottom:1rem;">
-          <div class="section-header-left">
-            <span class="eyebrow">Cadastro Oficial de Morador Empreendedor</span>
-            <h2>Cadastre Seu Serviço no Guia do Condomínio Quebec</h2>
-            <p>Exclusivo para moradores da Rua Ênio Pereira de Carvalho, 383. Preencha seu cadastro básico (Nome, CPF, Celular, Bloco, Apartamento e Serviço Prestado).</p>
-          </div>
-        </div>
+      <div id="boxCadastroServico" class="card">
+        <h3 class="card-title">Cadastrar Serviço de Morador</h3>
+        <p style="font-size:0.86rem; color:var(--text-body); margin-bottom:1.25rem;">
+          Exclusivo para moradores dos Blocos 01 ao 11 (Apartamentos 01 ao 16). Seu CPF fica protegido apenas para validação da administração.
+        </p>
 
         <form id="formServicoMorador" onsubmit="handleCreateServico(event)">
           <div class="form-grid">
             <div class="form-group">
-              <label for="srvNome">Nome Completo do Morador *</label>
-              <input type="text" id="srvNome" class="form-control" required placeholder="Digite seu nome completo" />
+              <label for="srvNome">Nome Completo *</label>
+              <input type="text" id="srvNome" class="form-control" required placeholder="Seu nome completo" />
             </div>
             <div class="form-group">
-              <label for="srvCpf">CPF do Morador * <small style="color:var(--text-muted); font-weight:500;">(Auditado pela Gestão)</small></label>
+              <label for="srvCpf">CPF * <small style="color:var(--text-muted); font-weight:400;">(Restrito à administração)</small></label>
               <input type="text" id="srvCpf" class="form-control" required maxlength="14" placeholder="000.000.000-00" oninput="maskCPF(this)" />
             </div>
             <div class="form-group">
@@ -676,258 +358,480 @@
               <input type="text" id="srvCelular" class="form-control" required maxlength="15" placeholder="(37) 99999-9999" oninput="maskPhone(this)" />
             </div>
             <div class="form-group">
-              <label for="srvBloco">Bloco *</label>
+              <label for="srvBloco">Bloco (01 ao 11) *</label>
               <select id="srvBloco" class="form-control" required>
-                <option value="">Selecione seu Bloco...</option>
-                <option value="Bloco A">Bloco A</option>
-                <option value="Bloco B">Bloco B</option>
-                <option value="Bloco C">Bloco C</option>
-                <option value="Bloco D">Bloco D</option>
-                <option value="Bloco E">Bloco E</option>
-                <option value="Bloco F">Bloco F</option>
+                <option value="">Selecione o Bloco...</option>
+                <option value="Bloco 01">Bloco 01</option>
+                <option value="Bloco 02">Bloco 02</option>
+                <option value="Bloco 03">Bloco 03</option>
+                <option value="Bloco 04">Bloco 04</option>
+                <option value="Bloco 05">Bloco 05</option>
+                <option value="Bloco 06">Bloco 06</option>
+                <option value="Bloco 07">Bloco 07</option>
+                <option value="Bloco 08">Bloco 08</option>
+                <option value="Bloco 09">Bloco 09</option>
+                <option value="Bloco 10">Bloco 10</option>
+                <option value="Bloco 11">Bloco 11</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="srvApto">Número do Apartamento *</label>
-              <input type="text" id="srvApto" class="form-control" required placeholder="Ex.: 101, 202, 304..." />
+              <label for="srvApto">Apartamento (01 ao 16) *</label>
+              <select id="srvApto" class="form-control" required>
+                <option value="">Selecione o Apartamento...</option>
+                <option value="Apto 01">Apartamento 01</option>
+                <option value="Apto 02">Apartamento 02</option>
+                <option value="Apto 03">Apartamento 03</option>
+                <option value="Apto 04">Apartamento 04</option>
+                <option value="Apto 05">Apartamento 05</option>
+                <option value="Apto 06">Apartamento 06</option>
+                <option value="Apto 07">Apartamento 07</option>
+                <option value="Apto 08">Apartamento 08</option>
+                <option value="Apto 09">Apartamento 09</option>
+                <option value="Apto 10">Apartamento 10</option>
+                <option value="Apto 11">Apartamento 11</option>
+                <option value="Apto 12">Apartamento 12</option>
+                <option value="Apto 13">Apartamento 13</option>
+                <option value="Apto 14">Apartamento 14</option>
+                <option value="Apto 15">Apartamento 15</option>
+                <option value="Apto 16">Apartamento 16</option>
+              </select>
             </div>
             <div class="form-group">
-              <label for="srvCategoria">Categoria do Serviço *</label>
+              <label for="srvCategoria">Categoria *</label>
               <select id="srvCategoria" class="form-control" required>
                 <option value="Alimentação & Confeitaria">Alimentação & Confeitaria</option>
-                <option value="Manutenção & Reparos">Manutenção, Elétrica, Hidráulica & Reparos</option>
-                <option value="Beleza & Estética">Beleza, Estética & Cuidados Pessoais</option>
-                <option value="Tecnologia & Informática">Tecnologia, Informática & Suporte</option>
-                <option value="Educação & Aulas">Educação, Reforço Escolar & Idiomas</option>
-                <option value="Saúde & Bem-Estar">Saúde, Fitness & Bem-Estar</option>
-                <option value="Transporte & Fretes">Transporte, Motorista & Entregas</option>
-                <option value="Outros Serviços">Outros Serviços Profissionais</option>
+                <option value="Manutenção & Reparos">Manutenção & Reparos</option>
+                <option value="Beleza & Estética">Beleza & Estética</option>
+                <option value="Outros Serviços">Outros Serviços</option>
               </select>
             </div>
-            <div class="form-group full">
+            <div class="form-group">
               <label for="srvTitulo">Serviço Prestado *</label>
-              <input type="text" id="srvTitulo" class="form-control" required placeholder="Ex.: Eletricista Residencial, Bolos por Encomenda, Manicure, Costureira, Contador..." />
+              <input type="text" id="srvTitulo" class="form-control" required placeholder="Ex.: Eletricista, Bolos, Manicure..." />
             </div>
             <div class="form-group">
-              <label for="srvHorario">Horário de Atendimento / Disponibilidade</label>
-              <input type="text" id="srvHorario" class="form-control" placeholder="Ex.: Segunda a Sábado das 08h às 19h" />
+              <label for="srvHorario">Horário de Atendimento</label>
+              <input type="text" id="srvHorario" class="form-control" placeholder="Ex.: Segunda a Sábado" />
             </div>
-            <div class="form-group">
-              <label for="srvDescricao">Descrição do Serviço para os Moradores *</label>
-              <input type="text" id="srvDescricao" class="form-control" required placeholder="Descreva brevemente o que você faz e diferenciais para vizinhos do Quebec..." />
+            <div class="form-group full">
+              <label for="srvDescricao">Breve Descrição *</label>
+              <input type="text" id="srvDescricao" class="form-control" required placeholder="Descreva seu serviço para os vizinhos..." />
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="margin-top:0.5rem;">
-            🚀 Publicar Meu Serviço no Guia do Condomínio Quebec
-          </button>
+          <button type="submit" class="btn btn-primary">Publicar Serviço no Guia</button>
         </form>
       </div>
     </section>
 
     <!-- ==========================================
-         ABA 7: PAINEL DO SÍNDICO (BACK-END ADMIN)
+         ABA 7: OUVIDORIA & RECLAMAÇÕES (SIGILOSO — APENAS O ADM VÊ!)
+         ========================================== -->
+    <section id="tab-reclamacoes" class="tab-panel">
+      <div class="section-header">
+        <div class="section-header-left">
+          <span class="eyebrow">Canal Direto e Sigiloso</span>
+          <h2>Ouvidoria & Registro de Reclamações</h2>
+          <p>As mensagens enviadas aqui caem <strong>exclusivamente no painel restrito do Síndico Celson Rodrigues</strong>. Nenhum outro morador visualiza sua manifestação.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Registrar Solicitação ou Reclamação</h3>
+          <form id="formReclamacao" onsubmit="handleCreateReclamacao(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="recNome">Nome do Morador *</label>
+                <input type="text" id="recNome" class="form-control" required placeholder="Seu nome" />
+              </div>
+              <div class="form-group">
+                <label for="recCelular">Celular / WhatsApp *</label>
+                <input type="text" id="recCelular" class="form-control" required placeholder="(37) 99999-9999" oninput="maskPhone(this)" />
+              </div>
+              <div class="form-group">
+                <label for="recBloco">Bloco (01 ao 11) *</label>
+                <select id="recBloco" class="form-control" required>
+                  <option value="">Selecione...</option>
+                  <option value="Bloco 01">Bloco 01</option>
+                  <option value="Bloco 02">Bloco 02</option>
+                  <option value="Bloco 03">Bloco 03</option>
+                  <option value="Bloco 04">Bloco 04</option>
+                  <option value="Bloco 05">Bloco 05</option>
+                  <option value="Bloco 06">Bloco 06</option>
+                  <option value="Bloco 07">Bloco 07</option>
+                  <option value="Bloco 08">Bloco 08</option>
+                  <option value="Bloco 09">Bloco 09</option>
+                  <option value="Bloco 10">Bloco 10</option>
+                  <option value="Bloco 11">Bloco 11</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="recApto">Apartamento (01 ao 16) *</label>
+                <select id="recApto" class="form-control" required>
+                  <option value="">Selecione...</option>
+                  <option value="Apto 01">Apartamento 01</option>
+                  <option value="Apto 02">Apartamento 02</option>
+                  <option value="Apto 03">Apartamento 03</option>
+                  <option value="Apto 04">Apartamento 04</option>
+                  <option value="Apto 05">Apartamento 05</option>
+                  <option value="Apto 06">Apartamento 06</option>
+                  <option value="Apto 07">Apartamento 07</option>
+                  <option value="Apto 08">Apartamento 08</option>
+                  <option value="Apto 09">Apartamento 09</option>
+                  <option value="Apto 10">Apartamento 10</option>
+                  <option value="Apto 11">Apartamento 11</option>
+                  <option value="Apto 12">Apartamento 12</option>
+                  <option value="Apto 13">Apartamento 13</option>
+                  <option value="Apto 14">Apartamento 14</option>
+                  <option value="Apto 15">Apartamento 15</option>
+                  <option value="Apto 16">Apartamento 16</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="recCategoria">Categoria *</label>
+                <select id="recCategoria" class="form-control" required>
+                  <option value="Manutenção / Iluminação">Manutenção / Iluminação</option>
+                  <option value="Limpeza / Caixa de Esgoto / Dedetização">Limpeza / Caixa de Esgoto / Dedetização</option>
+                  <option value="Barulho / Regimento Interno">Barulho / Regimento Interno</option>
+                  <option value="Garagem / Vagas">Garagem / Vagas</option>
+                  <option value="Portaria / Segurança">Portaria / Segurança</option>
+                  <option value="Sugestão">Sugestão</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="recUrgencia">Prioridade *</label>
+                <select id="recUrgencia" class="form-control" required>
+                  <option value="Média">Normal</option>
+                  <option value="Alta">Urgente</option>
+                  <option value="Baixa">Baixa</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label for="recAssunto">Assunto *</label>
+                <input type="text" id="recAssunto" class="form-control" required placeholder="Resumo da ocorrência" />
+              </div>
+              <div class="form-group full">
+                <label for="recMensagem">Mensagem Detalhada *</label>
+                <textarea id="recMensagem" class="form-control" required placeholder="Descreva os detalhes. Somente o Administrador terá acesso..."></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Enviar com Sigilo para o Síndico</button>
+          </form>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div class="card" style="background:var(--bg-soft-green); border-color:var(--border-strong);">
+            <h3 class="card-title">Privacidade Total Garantida</h3>
+            <p style="font-size:0.88rem; color:var(--text-body);">
+              Para preservar a boa convivência entre os moradores dos Blocos 01 ao 11, nenhuma reclamação é listada publicamente no site. Apenas o Síndico Celson Rodrigues visualiza e responde às manifestações em seu painel administrativo.
+            </p>
+            <div id="lastProtocolBox" style="display:none; margin-top:1rem; padding:0.9rem; background:#ffffff; border:1px solid var(--border-strong); border-radius:10px;">
+              <strong style="color:var(--green-forest); display:block; font-size:0.88rem;">Solicitação Registrada!</strong>
+              <span style="font-size:0.83rem; color:var(--text-body);">Seu protocolo de acompanhamento: <code id="lastProtocolCode" style="font-weight:700; color:var(--green-deep);"></code></span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Consultar Andamento por Protocolo</h3>
+            <p style="font-size:0.84rem; color:var(--text-body); margin-bottom:0.85rem;">
+              Informe o código gerado no envio para consultar a resposta do Síndico:
+            </p>
+            <div style="display:flex; gap:0.5rem;">
+              <input type="text" id="inputProtocolLookup" class="form-control" placeholder="Ex.: QBC-2026-4812" />
+              <button class="btn btn-outline" onclick="lookupProtocol()">Consultar</button>
+            </div>
+            <div id="protocolLookupResult" style="margin-top:0.9rem;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ABA 8: ÁREA DO SÍNDICO (PAINEL ADMINISTRATIVO)
          ========================================== -->
     <section id="tab-admin" class="tab-panel">
-      <!-- Tela de Login do Síndico -->
       <div id="adminLoginView" class="admin-login-box">
         <div style="text-align:center; margin-bottom:1.5rem;">
-          <div class="brand-crest" style="margin:0 auto 0.85rem; width:60px; height:60px; font-size:1.5rem;">🔐</div>
-          <h2 style="font-family:'Outfit',sans-serif; font-size:1.5rem; color:var(--green-forest);">Painel Administrativo do Síndico</h2>
-          <p style="font-size:0.88rem; color:var(--text-body);">
-            Acesso exclusivo para <strong>Celson Rodrigues</strong> gerenciar reclamações armazenadas, publicar atas de reuniões, atualizar melhorias e auditar o cadastro de serviços dos moradores.
+          <div class="brand-crest" style="margin:0 auto 0.75rem; width:52px; height:52px;">🔐</div>
+          <h2 style="font-family:'Outfit',sans-serif; font-size:1.4rem; color:var(--green-forest);">Área Restrita do Síndico</h2>
+          <p style="font-size:0.84rem; color:var(--text-muted); margin-top:0.25rem;">
+            Acesso exclusivo da administração para ver reclamações e publicar avisos, PDFs de fechamento mensal, atas e melhorias.
           </p>
         </div>
 
         <form onsubmit="handleAdminLogin(event)">
           <div class="form-group">
-            <label for="adminUser">Usuário da Gestão</label>
+            <label for="adminUser">Usuário</label>
             <input type="text" id="adminUser" class="form-control" value="celson" required />
           </div>
           <div class="form-group">
-            <label for="adminPass">Senha Administrativa</label>
+            <label for="adminPass">Senha</label>
             <input type="password" id="adminPass" class="form-control" value="quebec383" required />
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">
-            Entrar no Back-end da Gestão →
+          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.4rem;">
+            Acessar Painel Administrativo
           </button>
         </form>
-
-        <div style="margin-top:1.25rem; padding:0.9rem; background:var(--bg-soft-green); border:1px solid var(--border-strong); border-radius:12px; font-size:0.8rem; color:var(--green-forest);">
-          💡 <strong>Modo Apresentação Ativo:</strong> As credenciais do Síndico Celson Rodrigues (usuário: <code>celson</code> / senha: <code>quebec383</code>) já estão preenchidas para você demonstrar o painel ao vivo!
-        </div>
       </div>
 
-      <!-- Dashboard Logado do Síndico Celson Rodrigues -->
+      <!-- Painel Logado -->
       <div id="adminDashboardView" style="display:none;">
         <div class="section-header">
           <div class="section-header-left">
-            <span class="eyebrow">Back-end de Administração • Condomínio Residencial Quebec</span>
-            <h2>Painel de Controle — Síndico Celson Rodrigues</h2>
-            <p>Gerencie todas as informações armazenadas no banco de dados do condomínio em tempo real.</p>
+            <span class="eyebrow">Administração • Residencial Quebec</span>
+            <h2>Painel de Controle do Síndico</h2>
           </div>
-          <div style="display:flex; gap:0.65rem;">
-            <a href="proposta-sindico.html" class="btn btn-primary btn-sm">📄 Abrir Proposta Comercial</a>
-            <button class="btn btn-outline btn-sm" onclick="handleAdminLogout()">Sair do Painel</button>
-          </div>
+          <button class="btn btn-outline btn-sm" onclick="handleAdminLogout()">Sair do Painel</button>
         </div>
 
-        <!-- Sub-navegação do Admin -->
         <div class="admin-subnav">
           <button class="filter-btn active" onclick="switchAdminSection('adm-reclamacoes', this)">
-            📣 Gerenciar Reclamações (<span id="admCountRec">0</span>)
-          </button>
-          <button class="filter-btn" onclick="switchAdminSection('adm-atas', this)">
-            📋 Publicar Atas de Reunião (<span id="admCountAtas">0</span>)
-          </button>
-          <button class="filter-btn" onclick="switchAdminSection('adm-melhorias', this)">
-            🛠️ Publicar / Atualizar Melhorias (<span id="admCountMel">0</span>)
-          </button>
-          <button class="filter-btn" onclick="switchAdminSection('adm-servicos', this)">
-            🤝 Cadastro de Moradores & CPF (<span id="admCountSrv">0</span>)
+            Reclamações (<span id="admCountRec">0</span>)
           </button>
           <button class="filter-btn" onclick="switchAdminSection('adm-avisos', this)">
-            📢 Comunicados Rápidos
+            Mural de Avisos (<span id="admCountAvisos">0</span>)
+          </button>
+          <button class="filter-btn" onclick="switchAdminSection('adm-fechamento', this)">
+            Fechamento Mensal (PDF)
+          </button>
+          <button class="filter-btn" onclick="switchAdminSection('adm-atas', this)">
+            Atas (PDF) (<span id="admCountAtas">0</span>)
+          </button>
+          <button class="filter-btn" onclick="switchAdminSection('adm-melhorias', this)">
+            Melhorias (<span id="admCountMel">0</span>)
+          </button>
+          <button class="filter-btn" onclick="switchAdminSection('adm-fotos', this)">
+            Foto da Entrada & Logo
+          </button>
+          <button class="filter-btn" onclick="switchAdminSection('adm-servicos', this)">
+            Serviços & CPF (<span id="admCountSrv">0</span>)
           </button>
         </div>
 
-        <!-- SEÇÃO ADMIN 1: GERENCIAR RECLAMAÇÕES -->
+        <!-- 1. Reclamações Sigilosas -->
         <div id="adm-reclamacoes" class="admin-section">
           <div class="card">
-            <h3 class="card-title">📣 Reclamações e Solicitações Armazenadas dos Moradores</h3>
-            <p style="font-size:0.88rem; color:var(--text-body); margin-bottom:1.25rem;">
-              Visualize os dados completos do morador, altere o status da ocorrência e registre o parecer oficial do Síndico Celson Rodrigues.
-            </p>
+            <h3 class="card-title">Reclamações Recebidas (Visível Apenas ao Admin)</h3>
             <div id="adminReclamacoesList"></div>
           </div>
         </div>
 
-        <!-- SEÇÃO ADMIN 2: PUBLICAR E GERENCIAR ATAS -->
-        <div id="adm-atas" class="admin-section" style="display:none;">
+        <!-- 2. Mural de Avisos (Dedetização, Limpeza de Caixa de Esgoto, etc.) -->
+        <div id="adm-avisos" class="admin-section" style="display:none;">
           <div class="grid-2">
             <div class="card">
-              <h3 class="card-title">📋 Publicar Nova Ata de Reunião / Assembleia</h3>
-              <form id="formAdminAta" onsubmit="handleAdminCreateAta(event)">
+              <h3 class="card-title">Publicar Novo Aviso para os Moradores</h3>
+              <p style="font-size:0.84rem; color:var(--text-body); margin-bottom:1rem;">
+                Insira avisos sobre dedetização, limpeza da caixinha de esgoto, manutenção de portão, jardinagem ou comunicados gerais.
+              </p>
+              <form id="formAdminAviso" onsubmit="handleAdminCreateAviso(event)">
                 <div class="form-group">
-                  <label>Título da Ata *</label>
-                  <input type="text" id="ataTitulo" class="form-control" required placeholder="Ex.: Ata da Assembleia Geral Extraordinária - Pintura dos Blocos" />
-                </div>
-                <div class="form-grid">
-                  <div class="form-group">
-                    <label>Tipo de Assembleia *</label>
-                    <select id="ataTipo" class="form-control">
-                      <option value="Assembleia Ordinária">Assembleia Ordinária (AGO)</option>
-                      <option value="Assembleia Extraordinária">Assembleia Extraordinária (AGE)</option>
-                      <option value="Reunião do Conselho Fiscal">Reunião do Conselho Fiscal</option>
-                      <option value="Comunicado Oficial">Comunicado Normativo</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Data da Reunião *</label>
-                    <input type="text" id="ataData" class="form-control" required placeholder="Ex.: 28/10/2026" />
-                  </div>
+                  <label>Categoria do Aviso *</label>
+                  <select id="avisoPrioridade" class="form-control" required>
+                    <option value="Dedetização & Saúde">Dedetização & Saúde</option>
+                    <option value="Limpeza Caixa de Esgoto">Limpeza Caixa de Esgoto / Hidráulica</option>
+                    <option value="Manutenção Programada">Manutenção Programada</option>
+                    <option value="Comunicado Importante">Comunicado Importante</option>
+                  </select>
                 </div>
                 <div class="form-group">
-                  <label>Número / Identificador do Documento</label>
-                  <input type="text" id="ataNumero" class="form-control" placeholder="Ex.: AGE Nº 05/2026" />
+                  <label>Título do Aviso *</label>
+                  <input type="text" id="avisoTitulo" class="form-control" required placeholder="Ex.: Cronograma de Dedetização e Limpeza das Caixas de Esgoto" />
                 </div>
                 <div class="form-group">
-                  <label>Resumo Executivo das Deliberações *</label>
-                  <textarea id="ataResumo" class="form-control" required placeholder="Descreva o resumo das decisões aprovadas na assembleia..."></textarea>
+                  <label>Data / Período de Execução *</label>
+                  <input type="text" id="avisoData" class="form-control" required placeholder="Ex.: Sábado, 08/11 às 08h30" />
                 </div>
                 <div class="form-group">
-                  <label>Pautas Deliberadas (uma por linha) *</label>
-                  <textarea id="ataPautas" class="form-control" required placeholder="1. Aprovação das contas do mês;&#10;2. Deliberação sobre pintura verde claro e branco;&#10;3. Assuntos gerais."></textarea>
+                  <label>Orientações para os Moradores *</label>
+                  <textarea id="avisoMensagem" class="form-control" required placeholder="Descreva os blocos atendidos e os cuidados necessários..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width:100%;">Publicar Ata no Portal</button>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Publicar Aviso no Site</button>
+              </form>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Avisos Ativos no Mural</h3>
+              <div id="adminAvisosList"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Fechamento Mensal (Apenas Upload de PDF pelo Admin!) -->
+        <div id="adm-fechamento" class="admin-section" style="display:none;">
+          <div class="grid-2">
+            <div class="card">
+              <h3 class="card-title">Inserir PDF do Fechamento Mensal</h3>
+              <p style="font-size:0.84rem; color:var(--text-body); margin-bottom:1rem;">
+                Anexe o arquivo PDF (ou documento) do fechamento mensal. Os moradores poderão visualizá-lo e baixá-lo na aba "Fechamento Mensal".
+              </p>
+              <form id="formAdminFechamento" onsubmit="handleAdminSaveFechamento(event)">
+                <div class="form-group">
+                  <label>Mês / Título do Fechamento *</label>
+                  <input type="text" id="fechMes" class="form-control" required placeholder="Ex.: Fechamento Mensal — Outubro / 2026" />
+                </div>
+                <div class="form-group">
+                  <label>Breve Resumo / Observação para o Morador *</label>
+                  <input type="text" id="fechObs" class="form-control" required placeholder="Ex.: Balancete oficial das contas Sicoob e Cora com detalhamento de receitas e despesas." />
+                </div>
+                <div class="form-group">
+                  <label>Anexar Arquivo PDF do Fechamento Mensal *</label>
+                  <input type="file" id="fechFileInput" accept=".pdf,.xlsx,image/*" class="form-control" onchange="handleFechamentoFileSelect(event)" />
+                  <input type="hidden" id="fechArquivoNome" value="" />
+                  <input type="hidden" id="fechArquivoUrl" value="" />
+                  <small id="fechFileStatus" style="color:var(--green-medium); font-weight:600;"></small>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Publicar PDF do Fechamento Mensal</button>
               </form>
             </div>
 
             <div class="card">
-              <h3 class="card-title">🗂️ Atas Publicadas</h3>
+              <h3 class="card-title">Fechamentos Mensais Publicados</h3>
+              <div id="adminFechamentosList"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Atas de Assembleia (Upload de PDF pelo Admin) -->
+        <div id="adm-atas" class="admin-section" style="display:none;">
+          <div class="grid-2">
+            <div class="card">
+              <h3 class="card-title" id="formAtaHeading">Inserir PDF de Ata de Assembleia</h3>
+              <form id="formAdminAta" onsubmit="handleAdminSaveAta(event)">
+                <input type="hidden" id="ataEditId" value="" />
+                <div class="form-group">
+                  <label>Título da Ata *</label>
+                  <input type="text" id="ataTitulo" class="form-control" required placeholder="Ex.: Ata da Assembleia Geral Extraordinária" />
+                </div>
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label>Data da Assembleia *</label>
+                    <input type="text" id="ataData" class="form-control" required placeholder="Ex.: 28/08/2025" />
+                  </div>
+                  <div class="form-group">
+                    <label>Registro / Cartório</label>
+                    <input type="text" id="ataNumero" class="form-control" placeholder="Ex.: Registro Nº 31691" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Resumo da Ata *</label>
+                  <textarea id="ataResumo" class="form-control" required placeholder="Breve descrição da ata..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Anexar Arquivo PDF da Ata *</label>
+                  <input type="file" id="ataFileInput" accept=".pdf,image/*" class="form-control" onchange="handleAtaFileSelect(event)" />
+                  <input type="hidden" id="ataArquivoNome" value="" />
+                  <input type="hidden" id="ataArquivoUrl" value="" />
+                  <small id="ataFileStatus" style="color:var(--green-medium); font-weight:600;"></small>
+                </div>
+                <div style="display:flex; gap:0.5rem;">
+                  <button type="submit" class="btn btn-primary" style="flex:1;">Publicar Ata em PDF</button>
+                  <button type="button" class="btn btn-outline" onclick="resetAtaForm()" id="btnCancelAtaEdit" style="display:none;">Cancelar</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Atas Publicadas</h3>
               <div id="adminAtasList"></div>
             </div>
           </div>
         </div>
 
-        <!-- SEÇÃO ADMIN 3: PUBLICAR E ATUALIZAR MELHORIAS -->
+        <!-- 5. Melhorias -->
         <div id="adm-melhorias" class="admin-section" style="display:none;">
           <div class="grid-2">
             <div class="card">
-              <h3 class="card-title">🛠️ Cadastrar Nova Melhoria ou Obra</h3>
-              <form id="formAdminMelhoria" onsubmit="handleAdminCreateMelhoria(event)">
+              <h3 class="card-title" id="formMelhoriaHeading">Cadastrar ou Editar Melhoria</h3>
+              <form id="formAdminMelhoria" onsubmit="handleAdminSaveMelhoria(event)">
+                <input type="hidden" id="melEditId" value="" />
                 <div class="form-group">
-                  <label>Título da Melhoria / Obra *</label>
-                  <input type="text" id="melTitulo" class="form-control" required placeholder="Ex.: Instalação de Novos Extintores e Sinalização de Emergência" />
+                  <label>Título da Melhoria *</label>
+                  <input type="text" id="melTitulo" class="form-control" required placeholder="Ex.: Pintura do Bloco 02" />
                 </div>
                 <div class="form-grid">
                   <div class="form-group">
-                    <label>Categoria *</label>
-                    <select id="melCategoria" class="form-control">
-                      <option value="Infraestrutura & Economia">Infraestrutura & Economia</option>
-                      <option value="Segurança Patrimonial">Segurança Patrimonial</option>
-                      <option value="Valorização & Conservação">Valorização & Conservação</option>
-                      <option value="Saúde & Manutenção">Saúde & Manutenção</option>
-                      <option value="Qualidade de Vida">Qualidade de Vida</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Status Atual *</label>
+                    <label>Status *</label>
                     <select id="melStatus" class="form-control">
-                      <option value="Concluído">Concluído (100%)</option>
+                      <option value="Concluído">Concluído</option>
                       <option value="Em Andamento">Em Andamento</option>
-                      <option value="Planejado">Planejado / Em Orçamento</option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label>Porcentagem de Conclusão (0 a 100%)</label>
-                    <input type="number" id="melProgresso" class="form-control" min="0" max="100" value="100" />
-                  </div>
-                  <div class="form-group">
-                    <label>Mês / Período *</label>
+                    <label>Período / Data *</label>
                     <input type="text" id="melData" class="form-control" required placeholder="Ex.: Outubro/2026" />
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Valor Investido / Orçamento</label>
-                  <input type="text" id="melInvestimento" class="form-control" placeholder="Ex.: R$ 3.800,00" />
+                  <label>Descrição *</label>
+                  <textarea id="melDescricao" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
-                  <label>Descrição Detalhada do Serviço Executado *</label>
-                  <textarea id="melDescricao" class="form-control" required placeholder="Explique os benefícios e o que foi realizado no condomínio..."></textarea>
+                  <label>Foto da Melhoria</label>
+                  <input type="file" id="melFotoFile" accept="image/*" class="form-control" onchange="previewMelhoriaPhoto(event)" />
+                  <input type="hidden" id="melImagemData" value="" />
                 </div>
-                <div class="form-group">
-                  <label>URL de Foto da Obra (Opcional)</label>
-                  <input type="url" id="melImagem" class="form-control" placeholder="assets/fachada-quebec.png" />
+                <div style="display:flex; gap:0.5rem;">
+                  <button type="submit" class="btn btn-primary" style="flex:1;">Salvar Melhoria</button>
+                  <button type="button" class="btn btn-outline" onclick="resetMelhoriaForm()" id="btnCancelMelEdit" style="display:none;">Cancelar</button>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width:100%;">Publicar Melhoria no Portal</button>
               </form>
             </div>
-
             <div class="card">
-              <h3 class="card-title">📊 Gerenciar Status das Melhorias</h3>
+              <h3 class="card-title">Melhorias Cadastradas</h3>
               <div id="adminMelhoriasList"></div>
             </div>
           </div>
         </div>
 
-        <!-- SEÇÃO ADMIN 4: AUDITORIA DE SERVIÇOS DOS MORADORES (COM CPF COMPLETO) -->
+        <!-- 6. Identidade Visual (Foto da Entrada, Logo da Folha e Galeria) -->
+        <div id="adm-fotos" class="admin-section" style="display:none;">
+          <div class="grid-2">
+            <div class="card">
+              <h3 class="card-title">Atualizar Logo (Símbolo da Folha) ou Foto da Entrada</h3>
+              <div class="form-group">
+                <label>Símbolo / Logo do Condomínio (Cabeçalho)</label>
+                <input type="file" accept="image/*" class="form-control" onchange="handleUpdateBrandLogo(event)" />
+              </div>
+              <hr style="border:none; border-top:1px solid var(--border-soft); margin:1.25rem 0;" />
+              <form onsubmit="handleAdminAddGalleryPhoto(event)">
+                <div class="form-group">
+                  <label>Título da Foto *</label>
+                  <input type="text" id="galTitulo" class="form-control" required placeholder="Ex.: Entrada Principal — Condomínio Quebec" />
+                </div>
+                <div class="form-group">
+                  <label>Legenda *</label>
+                  <input type="text" id="galLegenda" class="form-control" required placeholder="Ex.: Rua Ênio Pereira de Carvalho, 383" />
+                </div>
+                <div class="form-group">
+                  <label>Selecionar Foto *</label>
+                  <input type="file" id="galFileInput" accept="image/*" class="form-control" required onchange="handleGalleryFileSelect(event)" />
+                  <input type="hidden" id="galImagemData" value="" />
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Adicionar Foto (Destaque da Entrada)</button>
+              </form>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Fotos da Apresentação</h3>
+              <div id="adminGalleryList"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Serviços e CPF -->
         <div id="adm-servicos" class="admin-section" style="display:none;">
           <div class="card">
-            <h3 class="card-title">🤝 Base Cadastral de Moradores Prestadores de Serviço (Com CPF Completo)</h3>
-            <p style="font-size:0.88rem; color:var(--text-body); margin-bottom:1.25rem;">
-              Acesso restrito do Síndico Celson Rodrigues a todos os dados cadastrais exigidos (<strong>Nome, CPF completo, Celular, Bloco, Número do Apartamento e Serviço Prestado</strong>).
-            </p>
+            <h3 class="card-title">Moradores Prestadores de Serviço (Com CPF)</h3>
             <div class="admin-table-wrap">
               <table class="admin-table">
                 <thead>
                   <tr>
                     <th>Morador</th>
-                    <th>CPF (Registro Interno)</th>
-                    <th>Unidade (Bloco / Apto)</th>
-                    <th>Celular / WhatsApp</th>
-                    <th>Serviço Prestado</th>
-                    <th>Ações</th>
+                    <th>CPF</th>
+                    <th>Unidade</th>
+                    <th>Celular</th>
+                    <th>Serviço</th>
+                    <th>Ação</th>
                   </tr>
                 </thead>
                 <tbody id="adminServicosTableBody"></tbody>
@@ -936,85 +840,56 @@
           </div>
         </div>
 
-        <!-- SEÇÃO ADMIN 5: COMUNICADOS RÁPIDOS NO TOPO -->
-        <div id="adm-avisos" class="admin-section" style="display:none;">
-          <div class="grid-2">
-            <div class="card">
-              <h3 class="card-title">📢 Publicar Comunicado Rápido no Topo do Site</h3>
-              <form id="formAdminAviso" onsubmit="handleAdminCreateAviso(event)">
-                <div class="form-group">
-                  <label>Título do Aviso *</label>
-                  <input type="text" id="avisoTitulo" class="form-control" required placeholder="Ex.: Limpeza Programada das Caixas d'Água" />
-                </div>
-                <div class="form-group">
-                  <label>Mensagem Resumida *</label>
-                  <textarea id="avisoMensagem" class="form-control" required placeholder="Digite o comunicado que aparecerá em destaque para todos os moradores..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width:100%;">Atualizar Aviso em Destaque</button>
-              </form>
-            </div>
-            <div class="card">
-              <h3 class="card-title">📌 Histórico de Avisos</h3>
-              <div id="adminAvisosList"></div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Modal para Visualizar / Imprimir Ata Completa -->
-  <div id="ataModal" class="modal-backdrop" onclick="if(event.target === this) closeAtaModal()">
-    <div class="modal-content">
-      <div id="ataModalBody"></div>
-      <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem; border-top:1px solid var(--border-soft); padding-top:1rem;">
-        <button class="btn btn-outline" onclick="closeAtaModal()">Fechar</button>
-        <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir / Salvar Ata em PDF</button>
-      </div>
-    </div>
-  </div>
+  <!-- Navegação Mobile Clean -->
+  <nav class="mobile-bottom-nav" aria-label="Menu Mobile">
+    <button class="mobile-nav-btn active" data-mob="apresentacao" onclick="switchTab('apresentacao')">
+      <span class="m-icon">🏢</span>
+      <span>Início</span>
+    </button>
+    <button class="mobile-nav-btn" data-mob="avisos" onclick="switchTab('avisos')">
+      <span class="m-icon">📢</span>
+      <span>Avisos</span>
+    </button>
+    <button class="mobile-nav-btn" data-mob="fechamento" onclick="switchTab('fechamento')">
+      <span class="m-icon">📄</span>
+      <span>Contas</span>
+    </button>
+    <button class="mobile-nav-btn" data-mob="atas" onclick="switchTab('atas')">
+      <span class="m-icon">📋</span>
+      <span>Atas</span>
+    </button>
+    <button class="mobile-nav-btn" data-mob="melhorias" onclick="switchTab('melhorias')">
+      <span class="m-icon">🛠️</span>
+      <span>Obras</span>
+    </button>
+    <button class="mobile-nav-btn" data-mob="servicos" onclick="switchTab('servicos')">
+      <span class="m-icon">🤝</span>
+      <span>Serviços</span>
+    </button>
+    <button class="mobile-nav-btn" data-mob="reclamacoes" onclick="switchTab('reclamacoes')">
+      <span class="m-icon">🔒</span>
+      <span>Ouvidoria</span>
+    </button>
+  </nav>
 
   <!-- Toast Container -->
   <div id="toastContainer" class="toast-container"></div>
 
-  <!-- Rodapé -->
+  <!-- Rodapé Minimalista -->
   <footer class="footer">
     <div class="footer-inner">
       <div>
-        <h4>🏢 Condomínio Residencial Quebec</h4>
-        <p style="font-size:0.88rem; margin-bottom:0.75rem;">
-          Portal Oficial de Transparência, Comunicação, Ouvidoria e Valorização dos Moradores.
-        </p>
-        <p style="font-size:0.84rem; color:#ecfdf5;">
-          📍 <strong>Rua Ênio Pereira de Carvalho, 383</strong> — Bairro Parque Jardim Santanense<br/>
-          Itaúna – MG • CEP: 35681-312
-        </p>
+        <strong style="color:var(--green-forest);">Condomínio Residencial Quebec</strong> • CNPJ 20.410.595/0001-60<br/>
+        <span>Rua Ênio Pereira de Carvalho, 383 — Parque Jardim Santanense, Itaúna/MG • Blocos 01 ao 11 (176 Unidades)</span>
       </div>
       <div>
-        <h4>👔 Gestão Condominial</h4>
-        <p style="font-size:0.86rem; margin-bottom:0.5rem; color:#ffffff;">
-          <strong>Síndico:</strong> Celson Rodrigues
-        </p>
-        <p style="font-size:0.84rem;">
-          Atendimento aos moradores com registro de protocolo, prestação de contas em assembleia e conservação contínua dos blocos verde claro e branco.
-        </p>
+        <span>Gestão Síndico <strong>Celson Batista Rodrigues Filho</strong> • Sub-Síndico <strong>Sidney Barcelos Loiola</strong></span>
       </div>
-      <div>
-        <h4>🔗 Acesso Rápido</h4>
-        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.45rem; font-size:0.86rem;">
-          <li><a href="javascript:void(0)" onclick="switchTab('apresentacao')" style="color:#d1fae5; text-decoration:none;">→ Apresentação & Mapa</a></li>
-          <li><a href="javascript:void(0)" onclick="switchTab('melhorias')" style="color:#d1fae5; text-decoration:none;">→ Obras & Melhorias</a></li>
-          <li><a href="javascript:void(0)" onclick="switchTab('atas')" style="color:#d1fae5; text-decoration:none;">→ Atas de Reuniões</a></li>
-          <li><a href="javascript:void(0)" onclick="switchTab('reclamacoes')" style="color:#d1fae5; text-decoration:none;">→ Reclamações & Ouvidoria</a></li>
-          <li><a href="javascript:void(0)" onclick="switchTab('servicos')" style="color:#d1fae5; text-decoration:none;">→ Guia de Serviços dos Moradores</a></li>
-          <li><a href="proposta-sindico.html" style="color:#ffffff; text-decoration:none; font-weight:800;">→ Proposta Comercial para o Síndico</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Condomínio Residencial Quebec • Rua Ênio Pereira de Carvalho, 383 - Itaúna/MG</span>
-      <span>Gestão Síndico Celson Rodrigues • Identidade Verde Claro & Branco</span>
     </div>
   </footer>
 

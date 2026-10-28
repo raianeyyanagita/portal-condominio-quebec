@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 82" fill="none">
+  <!-- Folha de Bordo Vermelha Oficial do Tapete do Condomínio Quebec -->
+  <g transform="translate(8, 6)">
+    <rect width="68" height="68" rx="16" fill="#f4f8f5" stroke="#d5e6da" stroke-width="1.5"/>
+    <path d="M34 11L30.2 18.8L25.5 16.6L27.4 25.2L20.5 22.8L22.2 26.8L16 27.6L20.8 33.4L18.8 36.2L27.6 39.2L26.5 43.2L32.8 42.1V53H35.2V42.1L41.5 43.2L40.4 39.2L49.2 36.2L47.2 33.4L52 27.6L45.8 26.8L47.5 22.8L40.6 25.2L42.5 16.6L37.8 18.8L34 11Z" fill="#c42126"/>
+  </g>
+  <!-- Tipografia Oficial "Quebec CONDOMÍNIO RESIDENCIAL" -->
+  <text x="88" y="45" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" fill="#144d37" letter-spacing="0.5">Quebec</text>
+  <text x="90" y="64" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="10.2" font-weight="800" fill="#1b5e3f" letter-spacing="2.2">CONDOMÍNIO RESIDENCIAL</text>
+</svg>
