@@ -157,17 +157,36 @@ body {
   color: #ffffff;
 }
 
-.nav-tab.admin-tab {
-  margin-left: 0.35rem;
-  border: 1px solid var(--border-strong);
-  background: var(--bg-soft-green);
-  color: var(--green-deep);
+/* Botão Acesso Administrativo separado à direita no cabeçalho */
+.header-admin-wrap {
+  padding-left: 1rem;
+  border-left: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.nav-tab.admin-tab.active {
-  background: var(--green-deep);
+.header-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  background: var(--bg-soft-green);
+  border: 1px solid var(--border-strong);
+  color: var(--green-forest);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header-admin-btn:hover,
+.header-admin-btn.active {
+  background: var(--green-forest);
+  border-color: var(--green-forest);
   color: #ffffff;
-  border-color: var(--green-deep);
 }
 
 /* ==========================================
@@ -1145,8 +1164,13 @@ textarea.form-control {
   .nav-tabs {
     display: none;
   }
-  .mobile-admin-trigger {
-    display: inline-flex;
+  .header-admin-wrap {
+    border-left: none;
+    padding-left: 0;
+  }
+  .header-admin-btn {
+    padding: 0.44rem 0.78rem;
+    font-size: 0.75rem;
   }
   .mobile-bottom-nav {
     display: flex;

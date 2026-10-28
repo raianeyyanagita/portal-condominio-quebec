@@ -194,6 +194,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderBlocks11Grid();
   await loadDatabase();
   renderAll();
+  if (window.location.hash === '#admin') {
+    switchTab('admin');
+  }
 });
 
 function renderBlocks11Grid() {
@@ -287,10 +290,11 @@ function showToast(msg) {
 function switchTab(tabId) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.header-admin-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.mobile-nav-btn').forEach(m => m.classList.remove('active'));
 
   const targetPanel = document.getElementById(`tab-${tabId}`);
-  const targetBtn = document.querySelector(`.nav-tab[data-tab="${tabId}"]`);
+  const targetBtn = document.querySelector(`.nav-tab[data-tab="${tabId}"]`) || document.querySelector(`.header-admin-btn[data-tab="${tabId}"]`);
   const targetMob = document.querySelector(`.mobile-nav-btn[data-mob="${tabId}"]`);
 
   if (targetPanel) targetPanel.classList.add('active');
