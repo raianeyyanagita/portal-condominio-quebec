@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'condominio_quebec_db_v8';
+const STORAGE_KEY = 'condominio_quebec_db_v9';
 
 const SEED_DB = {
   condominio: {
@@ -9,21 +9,9 @@ const SEED_DB = {
     galeria: [
       {
         id: 'gal_1',
-        titulo: 'Portaria & Entrada Oficial',
-        legenda: 'Fachada no padrão verde claro e branco do Residencial Quebec',
+        titulo: 'Portaria Principal — Residencial Quebec',
+        legenda: 'Fachada oficial no padrão verde claro e branco',
         imagem: 'entrada-real-quebec.jpg'
-      },
-      {
-        id: 'gal_2',
-        titulo: 'Acesso da Portaria & Símbolo Quebec',
-        legenda: 'Identidade visual oficial na entrada do condomínio',
-        imagem: 'tapete-logo-quebec.jpg'
-      },
-      {
-        id: 'gal_3',
-        titulo: 'Pátio Interno & Blocos 01 ao 11',
-        legenda: '176 unidades (Apartamentos 01 ao 16 por bloco)',
-        imagem: 'blocos-patio.png'
       }
     ]
   },
@@ -486,8 +474,13 @@ function viewAtaPdf(url, title, fileName) {
 // ==========================================
 function renderGallery() {
   const gallery = document.getElementById('condoGallery');
+  const section = document.getElementById('extraGallerySection');
   if (!gallery) return;
-  const items = state.condominio?.galeria || SEED_DB.condominio.galeria;
+  const items = (state.condominio?.galeria || SEED_DB.condominio.galeria).slice(1);
+
+  if (section) {
+    section.style.display = items.length > 0 ? 'block' : 'none';
+  }
 
   gallery.innerHTML = items.map(g => `
     <div class="gallery-item">
