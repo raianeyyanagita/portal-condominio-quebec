@@ -937,7 +937,7 @@ async function handleCreateServico(e) {
 }
 
 // ==========================================
-// OUVIDORIA / RECLAMAÇÕES SIGILOSAS
+// Abertura de Chamados / RECLAMAÇÕES SIGILOSAS
 // ==========================================
 async function handleCreateReclamacao(e) {
   e.preventDefault();
