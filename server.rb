@@ -348,67 +348,8 @@ DEFAULT_DB = {
       'status_documento' => 'Registrado no Cartório RTDPJ de Itaúna/MG'
     }
   ],
-  'reclamacoes' => [
-    {
-      'id' => 'rec_1',
-      'protocolo' => 'QBC-2026-4812',
-      'nome' => 'Mariana Alves Costa',
-      'bloco' => 'Bloco 02',
-      'apartamento' => 'Apto 08',
-      'celular' => '(37) 99812-4410',
-      'categoria' => 'Manutenção / Iluminação',
-      'urgencia' => 'Média',
-      'assunto' => 'Lâmpada oscilando no corredor do Bloco 02',
-      'mensagem' => 'Olá Celson, a lâmpada próxima ao Apto 08 no Bloco 02 está piscando à noite. Poderia pedir para verificarem?',
-      'data' => '24/10/2026 às 19:40',
-      'status' => 'Resolvido',
-      'resposta_sindico' => 'Olá Mariana! O eletricista já realizou a troca no Bloco 02. Muito obrigado por avisar! — Celson Rodrigues.'
-    }
-  ],
-  'servicos' => [
-    {
-      'id' => 'srv_1',
-      'nome' => 'Juliana Mendes Rocha',
-      'cpf' => '114.829.346-10',
-      'celular' => '(37) 99945-2218',
-      'bloco' => 'Bloco 01',
-      'apartamento' => 'Apto 04',
-      'categoria' => 'Alimentação & Confeitaria',
-      'servico' => 'Bolos Caseiros, Doces para Festas e Marmitas',
-      'descricao' => 'Bolos de aniversário, docinhos tradicionais e marmitas feitas sob encomenda com entrega rápida aqui nos Blocos 01 a 11.',
-      'horario' => 'Terça a Sábado • Encomendas pelo WhatsApp',
-      'verificado' => true,
-      'data_cadastro' => '10/10/2026'
-    },
-    {
-      'id' => 'srv_2',
-      'nome' => 'Carlos Eduardo Martins',
-      'cpf' => '089.442.716-55',
-      'celular' => '(37) 99871-6034',
-      'bloco' => 'Bloco 05',
-      'apartamento' => 'Apto 11',
-      'categoria' => 'Manutenção & Reparos',
-      'servico' => 'Eletricista Residencial, Montagem de Móveis e Reparos',
-      'descricao' => 'Troca de chuveiros, tomadas, ventiladores de teto, suportes de TV e montagem de móveis em geral para vizinhos do Quebec.',
-      'horario' => 'Segunda a Sábado (inclusive urgências)',
-      'verificado' => true,
-      'data_cadastro' => '12/10/2026'
-    },
-    {
-      'id' => 'srv_3',
-      'nome' => 'Camila Ferreira Santos',
-      'cpf' => '132.675.906-21',
-      'celular' => '(37) 99918-7740',
-      'bloco' => 'Bloco 09',
-      'apartamento' => 'Apto 02',
-      'categoria' => 'Beleza & Estética',
-      'servico' => 'Manicure, Pedicure e Design de Sobrancelhas',
-      'descricao' => 'Atendimento com hora marcada no conforto do condomínio. Materiais 100% esterilizados.',
-      'horario' => 'Terça a Sábado das 09h às 19h',
-      'verificado' => true,
-      'data_cadastro' => '15/10/2026'
-    }
-  ]
+  'reclamacoes' => [],
+  'servicos' => []
 }
 
 def load_db

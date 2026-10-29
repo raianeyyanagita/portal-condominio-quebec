@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'condominio_quebec_db_v15';
+const STORAGE_KEY = 'condominio_quebec_db_v16';
 
 const SEED_DB = {
   condominio: {
@@ -319,61 +319,8 @@ const SEED_DB = {
       ]
     }
   ],
-  reclamacoes: [
-    {
-      id: 'rec_1',
-      protocolo: 'QBC-2026-4812',
-      nome: 'Mariana Alves Costa',
-      bloco: 'Bloco 02',
-      apartamento: 'Apto 08',
-      celular: '(37) 99812-4410',
-      categoria: 'Manutenção / Iluminação',
-      urgencia: 'Média',
-      assunto: 'Lâmpada oscilando no corredor do Bloco 02',
-      mensagem: 'A lâmpada próxima ao Apto 08 no Bloco 02 está piscando à noite.',
-      data: '24/10/2026 às 19:40',
-      status: 'Resolvido',
-      resposta_sindico: 'Olá Mariana! O eletricista já realizou a troca no Bloco 02. Obrigado por avisar!'
-    }
-  ],
-  servicos: [
-    {
-      id: 'srv_1',
-      nome: 'Juliana Mendes Rocha',
-      cpf: '114.829.346-10',
-      celular: '(37) 99945-2218',
-      bloco: 'Bloco 01',
-      apartamento: 'Apto 04',
-      categoria: 'Alimentação & Confeitaria',
-      servico: 'Bolos Caseiros, Doces e Encomendas',
-      descricao: 'Bolos de aniversário, docinhos tradicionais e sobremesas sob encomenda com entrega nos blocos.',
-      horario: 'Terça a Sábado'
-    },
-    {
-      id: 'srv_2',
-      nome: 'Carlos Eduardo Martins',
-      cpf: '089.442.716-55',
-      celular: '(37) 99871-6034',
-      bloco: 'Bloco 05',
-      apartamento: 'Apto 11',
-      categoria: 'Manutenção & Reparos',
-      servico: 'Eletricista Residencial e Pequenos Reparos',
-      descricao: 'Instalação de chuveiros, tomadas, luminárias, suportes de TV e montagem de móveis.',
-      horario: 'Segunda a Sábado'
-    },
-    {
-      id: 'srv_3',
-      nome: 'Camila Ferreira Santos',
-      cpf: '132.675.906-21',
-      celular: '(37) 99918-7740',
-      bloco: 'Bloco 09',
-      apartamento: 'Apto 02',
-      categoria: 'Beleza & Estética',
-      servico: 'Manicure, Pedicure e Sobrancelhas',
-      descricao: 'Atendimento com hora marcada para moradores do Residencial Quebec.',
-      horario: 'Terça a Sábado das 09h às 19h'
-    }
-  ]
+  reclamacoes: [],
+  servicos: []
 };
 
 let state = {
@@ -909,6 +856,20 @@ function renderServicos() {
       s.bloco.toLowerCase().includes(query);
     return matchCat && matchText;
   });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="card" style="grid-column:1 / -1; text-align:center; padding:2rem 1.5rem;">
+        <strong style="display:block; color:var(--green-forest); font-size:1.05rem; margin-bottom:0.35rem;">
+          ${state.servicos.length === 0 ? 'Nenhum serviço cadastrado ainda' : 'Nenhum serviço encontrado'}
+        </strong>
+        <span style="font-size:0.87rem; color:var(--text-body);">
+          ${state.servicos.length === 0 ? 'Seja o primeiro morador a cadastrar seu serviço no formulário abaixo!' : 'Tente buscar por outro termo ou categoria.'}
+        </span>
+      </div>
+    `;
+    return;
+  }
 
   grid.innerHTML = filtered.map(s => {
     const cleanPhone = (s.celular || '').replace(/\D/g, '');
