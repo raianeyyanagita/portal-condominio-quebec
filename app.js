@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'condominio_quebec_db_v20';
+const STORAGE_KEY = 'condominio_quebec_db_v21';
 
 const SEED_DB = {
   condominio: {
@@ -697,6 +697,54 @@ function toggleCompareMode(melId) {
   renderMelhorias();
 }
 
+const GITHUB_PHOTO_LOTS = {
+  1: [
+    'mel-bloco2-lateral.jpg', 'mel-caixa-gordura.jpg', 'mel-controle-caixa-aberta.jpg',
+    'mel-controle-caixa-fechada.jpg', 'mel-criancas-bolo.jpg', 'mel-criancas-cinema.jpg',
+    'mel-criancas-desenhos.jpg', 'mel-criancas-jardim.jpg', 'mel-criancas-lembrancinhas.jpg',
+    'mel-criancas-pintura-heroi.jpg', 'mel-criancas-pintura-rosto.jpg', 'mel-criancas-pipoca.jpg',
+    'mel-decoracao-entrada-1.jpg', 'mel-decoracao-entrada-2.jpg', 'mel-dedetizacao-real-2.jpg',
+    'mel-dedetizacao.jpg', 'mel-equipe-uniformizada.jpg', 'mel-extintores-antes-antigo.jpg',
+    'mel-extintores-antes-caixa.jpg', 'mel-extintores-depois-novos.jpg', 'mel-extintores-depois-placas.jpg'
+  ],
+  2: [
+    'mel-fechamento-bueiro.jpg', 'mel-grama-antes-paletes.jpg', 'mel-grama-antes-plantio.jpg',
+    'mel-grama-depois-natal.jpg', 'mel-grama-depois-placa.jpg', 'mel-grama-depois-talude.jpg',
+    'mel-grama-durante-irrigacao.jpg', 'mel-iluminacao-1.jpg', 'mel-iluminacao-2.jpg',
+    'mel-lazer-antes.jpg', 'mel-lazer-fogao.jpg', 'mel-lixeira-antes.jpg', 'mel-lixeira-depois.jpg',
+    'mel-parquinho-antes-estrutura.jpg', 'mel-parquinho-antes-lixo.jpg', 'mel-parquinho-antes-madeira.jpg',
+    'mel-parquinho-depois-cercado.jpg', 'mel-parquinho-durante-giragira.jpg', 'mel-portao-manutencao.jpg',
+    'mel-portaria-uniforme.jpg'
+  ]
+};
+
+function resolvePhotoUrl(url) {
+  if (!url) return '';
+  const name = url.split('/').pop();
+  if (GITHUB_PHOTO_LOTS[1].includes(name)) return 'LOTE_1_21_FOTOS/' + name;
+  if (GITHUB_PHOTO_LOTS[2].includes(name)) return 'LOTE_2_20_FOTOS/' + name;
+  return url;
+}
+
+function handleImgFallback(img) {
+  if (!img) return;
+  const step = parseInt(img.dataset.tryStep || '0', 10);
+  const name = (img.src || '').split('/').pop();
+  img.dataset.tryStep = String(step + 1);
+
+  if (step === 0) {
+    img.src = name;
+  } else if (step === 1) {
+    img.src = 'assets/' + name;
+  } else if (step === 2) {
+    img.src = 'LOTE_1_21_FOTOS/' + name;
+  } else if (step === 3) {
+    img.src = 'LOTE_2_20_FOTOS/' + name;
+  } else {
+    img.onerror = null;
+  }
+}
+
 function openPhotoLightbox(url, title, fase, legenda) {
   const modal = document.getElementById('photoLightboxModal');
   const img = document.getElementById('lightboxMainImg');
@@ -705,17 +753,10 @@ function openPhotoLightbox(url, title, fase, legenda) {
   const capEl = document.getElementById('lightboxCaption');
   if (!modal || !img) return;
 
-  delete img.dataset.tried;
-  img.src = url;
+  delete img.dataset.tryStep;
+  img.src = resolvePhotoUrl(url);
   img.onerror = function() {
-    if (!this.dataset.tried) {
-      this.dataset.tried = '1';
-      var f = (url || '').split('/').pop();
-      this.src = (url || '').includes('assets/') ? f : 'assets/' + f;
-    } else {
-      this.onerror = null;
-      this.src = 'entrada-real-quebec.jpg';
-    }
+    handleImgFallback(this);
   };
   if (badge) {
     if (fase) {
@@ -773,14 +814,14 @@ function renderMelhorias() {
         <div class="melhoria-split-compare">
           <div class="melhoria-split-half" onclick="openPhotoLightbox('${escapeHtml(firstAntes.url)}', '${escapeHtml(m.titulo)}', '${escapeHtml(firstAntes.fase)}', '${escapeHtml(firstAntes.legenda)}')">
             <span class="phase-pill phase-antes">Antes</span>
-            <img src="${escapeHtml(firstAntes.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;var f=this.src.split('/').pop();this.src=this.src.includes('assets/')?f:'assets/'+f;}else{this.onerror=null;this.src='entrada-real-quebec.jpg';}" alt="Antes - ${escapeHtml(m.titulo)}" />
+            <img src="${escapeHtml(resolvePhotoUrl(firstAntes.url))}" onerror="handleImgFallback(this)" alt="Antes - ${escapeHtml(m.titulo)}" />
             <div class="melhoria-stage-caption">
               <span>${escapeHtml(firstAntes.legenda || 'Antes da melhoria')}</span>
             </div>
           </div>
           <div class="melhoria-split-half" onclick="openPhotoLightbox('${escapeHtml(firstDepois.url)}', '${escapeHtml(m.titulo)}', '${escapeHtml(firstDepois.fase)}', '${escapeHtml(firstDepois.legenda)}')">
             <span class="phase-pill phase-depois">Depois</span>
-            <img src="${escapeHtml(firstDepois.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;var f=this.src.split('/').pop();this.src=this.src.includes('assets/')?f:'assets/'+f;}else{this.onerror=null;this.src='entrada-real-quebec.jpg';}" alt="Depois - ${escapeHtml(m.titulo)}" />
+            <img src="${escapeHtml(resolvePhotoUrl(firstDepois.url))}" onerror="handleImgFallback(this)" alt="Depois - ${escapeHtml(m.titulo)}" />
             <div class="melhoria-stage-caption">
               <span>${escapeHtml(firstDepois.legenda || 'Depois da melhoria')}</span>
             </div>
@@ -793,7 +834,7 @@ function renderMelhorias() {
       stageHtml = `
         <div class="melhoria-img-stage" onclick="openPhotoLightbox('${escapeHtml(activePhoto.url)}', '${escapeHtml(m.titulo)}', '${escapeHtml(activePhoto.fase || '')}', '${escapeHtml(activePhoto.legenda)}')">
           ${hasFase ? `<span class="phase-pill ${pClass}">${escapeHtml(activePhoto.fase)}</span>` : ''}
-          <img src="${escapeHtml(activePhoto.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;var f=this.src.split('/').pop();this.src=this.src.includes('assets/')?f:'assets/'+f;}else{this.onerror=null;this.src='entrada-real-quebec.jpg';}" alt="${escapeHtml(m.titulo)}" />
+          <img src="${escapeHtml(resolvePhotoUrl(activePhoto.url))}" onerror="handleImgFallback(this)" alt="${escapeHtml(m.titulo)}" />
           <div class="melhoria-stage-caption">
             <span>${escapeHtml(activePhoto.legenda || m.titulo)}</span>
             <span style="opacity:0.85; font-size:0.7rem; white-space:nowrap;">🔍 Ampliar</span>
@@ -811,7 +852,7 @@ function renderMelhorias() {
           const shortPhase = (f.fase || '').slice(0, 3).toUpperCase();
           return `
             <button type="button" class="melhoria-thumb-btn ${isSelected ? 'active' : ''}" onclick="selectMelhoriaPhoto('${m.id}', ${idx})" title="${escapeHtml(f.legenda || '')}">
-              <img src="${escapeHtml(f.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;var f=this.src.split('/').pop();this.src=this.src.includes('assets/')?f:'assets/'+f;}else{this.onerror=null;this.src='entrada-real-quebec.jpg';}" alt="Miniatura ${idx + 1}" />
+              <img src="${escapeHtml(resolvePhotoUrl(f.url))}" onerror="handleImgFallback(this)" alt="Miniatura ${idx + 1}" />
               ${hasThumbFase ? `<span class="thumb-phase-dot ${dotClass}">${escapeHtml(shortPhase)}</span>` : ''}
             </button>
           `;
@@ -1395,7 +1436,7 @@ function renderExistingMelhoriaPhotosInForm(mel) {
   box.style.display = 'block';
   listEl.innerHTML = fotos.map((f, idx) => `
     <div style="position:relative; width:72px; height:56px; border-radius:8px; overflow:hidden; border:1px solid var(--border-strong); background:#0f2419;">
-      <img src="${escapeHtml(f.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;var fName=this.src.split('/').pop();this.src=this.src.includes('assets/')?fName:'assets/'+fName;}" style="width:100%; height:100%; object-fit:cover;" alt="Foto ${idx + 1}" />
+      <img src="${escapeHtml(resolvePhotoUrl(f.url))}" onerror="handleImgFallback(this)" style="width:100%; height:100%; object-fit:cover;" alt="Foto ${idx + 1}" />
       ${f.fase ? `<span style="position:absolute; bottom:2px; left:2px; background:rgba(0,0,0,0.75); color:#fff; font-size:0.55rem; padding:1px 4px; border-radius:4px; font-weight:700;">${escapeHtml(f.fase)}</span>` : ''}
       <button type="button" onclick="removeSinglePhotoFromMelhoria('${mel.id}', ${idx})" title="Remover esta foto" style="position:absolute; top:2px; right:2px; width:18px; height:18px; border-radius:50%; border:none; background:#b91c1c; color:#fff; font-size:0.65rem; font-weight:800; cursor:pointer; line-height:1;">✕</button>
     </div>
