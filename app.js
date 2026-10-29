@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'condominio_quebec_db_v9';
+const STORAGE_KEY = 'condominio_quebec_db_v15';
 
 const SEED_DB = {
   condominio: {
@@ -17,27 +17,43 @@ const SEED_DB = {
   },
   avisos: [
     {
+      id: 'av_avcb',
+      titulo: 'AVCB Atualizado — Auto de Vistoria do Corpo de Bombeiros (Validade 5 Anos)',
+      mensagem: 'O Condomínio Residencial Quebec está com o AVCB (Nº PRJ20260161622) devidamente regularizado e emitido pelo Corpo de Bombeiros Militar de Minas Gerais, certificando 8.077,09 m² de área liberada com validade de 5 anos (até 19/08/2031).',
+      data: 'Validade: 5 Anos (Até 19/08/2031)',
+      prioridade: 'Segurança & Bombeiros',
+      autor: 'Administração'
+    },
+    {
       id: 'av_1',
-      titulo: 'Dedetização e Desratização nas Áreas Comuns (Blocos 01 ao 11)',
-      mensagem: 'Realizaremos o serviço completo de dedetização e desratização nas áreas externas, escadas e redes pluviais. Pedimos aos moradores que mantenham ralos vedados e evitem deixar animais domésticos soltos no pátio durante a aplicação.',
-      data: 'Cronograma Mensal • A partir das 08h30',
+      titulo: 'Dedetização Semestral nas Áreas Comuns (Feito em Outubro)',
+      mensagem: 'O serviço completo de dedetização e controle de pragas do condomínio possui periodicidade SEMESTRAL, tendo sido realizado em Outubro em todas as áreas externas, caixas de passagem, ralos e jardins dos Blocos 01 ao 11.',
+      data: 'Periodicidade Semestral • Feito em Outubro',
       prioridade: 'Dedetização & Saúde',
+      autor: 'Administração'
+    },
+    {
+      id: 'av_extintores',
+      titulo: 'Recarga de Extintores — Manutenção Anual (Novembro)',
+      mensagem: 'A recarga e manutenção preventiva de todos os extintores de incêndio (Pó Químico ABC e CO2) dos Blocos 01 ao 11 é realizada ANUALMENTE no mês de Novembro.',
+      data: 'Manutenção Anual • Novembro',
+      prioridade: 'Prevenção de Incêndio',
       autor: 'Administração'
     },
     {
       id: 'av_2',
       titulo: 'Limpeza Preventiva das Caixinhas de Esgoto e Gordura',
-      mensagem: 'A equipe de manutenção realizará a limpeza periódica das caixinhas de esgoto de todos os blocos (01 ao 11). Solicitamos não descartar óleo de cozinha, restos de alimentos ou lenços umedecidos nas tubulações.',
+      mensagem: 'A equipe de manutenção realiza a limpeza periódica das caixinhas de esgoto e gordura de todos os blocos (01 ao 11). Solicitamos não descartar óleo de cozinha, restos de alimentos ou lenços umedecidos nas tubulações.',
       data: 'Manutenção Preventiva • Blocos 01 a 11',
-      prioridade: 'Limpeza Caixa de Esgoto',
+      prioridade: 'Limpeza Caixa de Gordura',
       autor: 'Administração'
     },
     {
       id: 'av_3',
-      titulo: 'Áreas Debaixo das Escadas e Padronização das Garagens',
-      mensagem: 'Conforme definido em Assembleia, as áreas debaixo das escadas devem permanecer totalmente livres por segurança. As vagas de garagem destinam-se exclusivamente ao estacionamento de veículos e motocicletas.',
+      titulo: 'Estacionamento e Garagens (Veículos, Motocicletas e Bicicletas)',
+      mensagem: 'Conforme o Regimento Interno (Art. 17 a 20) e deliberação em Assembleia, as vagas de garagem demarcadas destinam-se ao estacionamento de veículos, motocicletas e também bicicletas (alocadas dentro dos limites da vaga respectiva de cada unidade). As áreas debaixo das escadas devem permanecer livres.',
       data: 'Regimento Interno em Vigor',
-      prioridade: 'Comunicado Importante',
+      prioridade: 'Estacionamento & Garagem',
       autor: 'Administração'
     }
   ],
@@ -61,51 +77,246 @@ const SEED_DB = {
       data: '28/08/2025',
       numero: 'Registro Cartório Nº 31691 • Livro B-88 Fls. 78/79',
       responsavel: 'Síndico Celson Batista Rodrigues Filho & Sub-Síndico Sidney Barcelos Loiola',
-      resumo: 'Documento oficial registrado no 1º Ofício de Registro de Títulos e Documentos de Itaúna/MG: eleição por unanimidade do Síndico e Sub-Síndico, regularização bancária, normas de garagem e autorização de manutenções emergenciais (dedetização, extintores e jardinagem).',
+      resumo: 'Documento oficial registrado no 1º Ofício de Registro de Títulos e Documentos de Itaúna/MG: eleição por unanimidade do Síndico e Sub-Síndico, regularização bancária, normas de estacionamento (veículos, motos e bicicletas) e autorização de manutenções.',
       arquivo_nome: 'Ata_Assembleia_28_08_2025_Registrada_Cartorio.pdf',
       arquivo_url: 'ata-assembleia-28-08-2025.pdf'
+    },
+    {
+      id: 'regimento_interno_quebec',
+      titulo: 'Regimento Interno Oficial — Condomínio Residencial Quebec',
+      tipo: 'Regimento Interno',
+      data: 'Registrado em Cartório (20/06/2014)',
+      numero: 'Cartório RTDPJ Itaúna/MG • Protocolo Nº 23121 • Registro Nº 21712 • Livro A-21 Pág. 167',
+      responsavel: 'Condomínio Residencial Quebec',
+      resumo: 'Regulamento Interno completo do Condomínio Residencial Quebec: direitos e deveres dos condôminos, regras de silêncio e convivência, uso do Salão de Festas e Área de Lazer (Art. 31), uso das vagas de estacionamento para carros, motos e bicicletas (Art. 17 a 20) e normas sobre animais domésticos.',
+      arquivo_nome: 'Regimento_Interno_Condominio_Quebec.pdf',
+      arquivo_url: 'regimento-interno-quebec.pdf'
     }
   ],
   melhorias: [
     {
-      id: 'mel_1',
-      titulo: 'Concertina Perimetral (240m) e Câmeras nos Blocos 07 a 10',
-      categoria: 'Segurança',
-      status: 'Em Andamento',
-      progresso: 85,
-      data: 'Outubro',
-      descricao: 'Instalação de 240 metros de concertina, ampliação das câmeras de monitoramento nos muros dos Blocos 07 a 10 e manutenção do sistema Jotaseg.',
-      imagem: 'convivencia-jardim.png'
-    },
-    {
-      id: 'mel_2',
-      titulo: 'Pintura do Bloco 02 (Luidar) e Placas de Sinalização',
-      categoria: 'Conservação',
-      status: 'Em Andamento',
-      progresso: 80,
-      data: 'Outubro',
-      descricao: 'Revitalização da pintura no padrão verde claro e branco e instalação de novas placas de orientação interna.',
-      imagem: 'entrada-real-quebec.jpg'
-    },
-    {
-      id: 'mel_3',
-      titulo: 'Troca do Motor do Portão e Obra de Escoamento na Área de Lazer',
-      categoria: 'Infraestrutura',
+      id: 'mel_avcb_2026',
+      titulo: 'AVCB Atualizado — Auto de Vistoria do Corpo de Bombeiros (Validade 5 Anos)',
+      categoria: 'Manutenção Preventiva',
       status: 'Concluído',
-      progresso: 100,
-      data: 'Outubro',
-      descricao: 'Substituição do motor do portão eletrônico e obra civil com 250 blocos para escoamento de água na área de lazer.',
-      imagem: 'blocos-patio.png'
+      data: 'Validade: 5 Anos (Até 19/08/2031)',
+      descricao: 'Certificação oficial emitida pelo Corpo de Bombeiros Militar de Minas Gerais (AVCB Nº PRJ20260161622 • Chave 1A07-F31B-C188-0CD4), atestando que os 8.077,09 m² do Condomínio Residencial Quebec cumprem todas as normas estaduais de Segurança Contra Incêndio e Pânico (PSCIP).',
+      destaque_nota: '🚒 AVCB Atualizado — Validade de 5 anos (Emitido em 19/08/2026 • Válido até 19/08/2031).',
+      imagem: 'mel-avcb-bombeiros.jpg',
+      fotos: [
+        { url: 'mel-avcb-bombeiros.jpg', fase: '', legenda: 'Certificado oficial AVCB — Corpo de Bombeiros Militar de Minas Gerais (Validade até 19/08/2031).' }
+      ]
     },
     {
-      id: 'mel_4',
-      titulo: 'Fogão e Botijão Novos no Salão de Festas + Jardinagem e Dedetização',
-      categoria: 'Área Comum',
+      id: 'mel_lixeira_2025',
+      titulo: 'Revitalização da Lixeira Coletiva',
+      categoria: 'Revitalização & Obras',
       status: 'Concluído',
-      progresso: 100,
-      data: 'Outubro',
-      descricao: 'Aquisição de novos equipamentos para o salão de festas, limpeza de jardinagem e dedetização geral do condomínio.',
-      imagem: 'convivencia-jardim.png'
+      data: 'Desde 2025',
+      descricao: 'Reforma e revitalização completa da lixeira coletiva: retirada de entulhos acumulados, pintura externa em cinza escuro, nova porta metálica sinalizada ("Depósito de Lixo — Proibido Colocar Entulho"), construção de muro branco de proteção visual, suporte para saquinhos e jardim.',
+      destaque_nota: 'Antes e Depois: organização total, higiene e fim do descarte irregular.',
+      imagem: 'mel-lixeira-depois.jpg',
+      fotos: [
+        { url: 'mel-lixeira-antes.jpg', fase: 'Antes', legenda: 'Antes: Área aberta com acúmulo de madeira, papelão e entulhos.' },
+        { url: 'mel-lixeira-depois.jpg', fase: 'Depois', legenda: 'Depois: Depósito revitalizado, pintado, sinalizado e protegido por muro novo.' }
+      ]
+    },
+    {
+      id: 'mel_lazer_2025',
+      titulo: 'Revitalização da Área de Lazer',
+      categoria: 'Revitalização & Obras',
+      status: 'Concluído',
+      data: 'Desde 2025',
+      descricao: 'Revitalização completa do Salão de Festas e espaço gourmet: remoção das pichações, nova pintura, instalação de grades de proteção e estruturação total. Agora disponibilizamos aos moradores uma área completa, equipada com churrasqueira, freezer, televisão, fogão e outros itens!',
+      destaque_nota: '✨ Agora disponibilizamos uma área de lazer completa com churrasqueira, freezer, televisão, fogão e outros!',
+      imagem: 'mel-lazer-depois-obra.jpg',
+      fotos: [
+        { url: 'mel-lazer-antes.jpg', fase: 'Antes', legenda: 'Antes: Paredes da churrasqueira e área de lazer com pichações.' },
+        { url: 'mel-lazer-depois-obra.jpg', fase: 'Depois', legenda: 'Depois: Área revitalizada, pintada e equipada com churrasqueira, freezer, televisão e outros.' }
+      ]
+    },
+    {
+      id: 'mel_grama_2025',
+      titulo: 'Projeto Grama Mais Verde',
+      categoria: 'Jardinagem & Paisagismo',
+      status: 'Concluído',
+      data: 'Desde 2025',
+      descricao: 'Implantação do Projeto Grama Mais Verde nos taludes e jardins do Condomínio Residencial Quebec: aquisição dos paletes de grama natural, plantio nos barrancos, irrigação diária e placas de preservação ("Não Pise na Grama").',
+      destaque_nota: 'Mais verde, valorização visual e conservação das áreas comuns.',
+      imagem: 'mel-grama-depois-talude.jpg',
+      fotos: [
+        { url: 'mel-grama-depois-talude.jpg', fase: '', legenda: 'Gramado verdinho e fechado nos taludes do condomínio.' },
+        { url: 'mel-grama-depois-placa.jpg', fase: '', legenda: 'Cuidado com o gramado e placa educativa "Não Pise na Grama".' },
+        { url: 'mel-grama-durante-irrigacao.jpg', fase: '', legenda: 'Irrigação e cuidado diário com a grama.' },
+        { url: 'mel-grama-antes-plantio.jpg', fase: '', legenda: 'Etapa de assentamento dos tapetes de grama.' },
+        { url: 'mel-grama-antes-paletes.jpg', fase: '', legenda: 'Chegada dos paletes de grama natural no condomínio.' }
+      ]
+    },
+    {
+      id: 'mel_parquinho_2025',
+      titulo: 'Revitalização do Parquinho Infantil',
+      categoria: 'Revitalização & Obras',
+      status: 'Concluído',
+      data: 'Desde 2025',
+      descricao: 'Revitalização e manutenção dos brinquedos do parquinho infantil: estrutura de madeira com escorregador, rampa de escalada, ponte, balanços e fixação com concreto do gira-gira azul.',
+      destaque_nota: 'Mais segurança e lazer para as crianças do condomínio.',
+      imagem: 'mel-parquinho-antes-madeira.jpg',
+      fotos: [
+        { url: 'mel-parquinho-antes-madeira.jpg', fase: '', legenda: 'Parquinho infantil de madeira com escorregador e ponte.' },
+        { url: 'mel-parquinho-antes-estrutura.jpg', fase: '', legenda: 'Estrutura completa com rampa de escalada e balanços.' },
+        { url: 'mel-parquinho-durante-giragira.jpg', fase: '', legenda: 'Fixação da base de concreto do gira-gira azul e balanços.' }
+      ]
+    },
+    {
+      id: 'mel_extintores_2025',
+      titulo: 'Troca e Recarga de Extintores (Manutenção Anual — Novembro)',
+      categoria: 'Manutenção Preventiva',
+      status: 'Concluído',
+      data: 'Anual • Novembro',
+      descricao: 'Manutenção preventiva anual de segurança contra incêndio realizada no mês de Novembro: retirada dos extintores antigos, higienização dos abrigos nos blocos e instalação dos extintores recarregados, lacrados e inspecionados pelo INMETRO (Pó Químico Seco ABC e CO2).',
+      destaque_nota: '📅 Recarga de Extintores: Manutenção ANUAL realizada em NOVEMBRO.',
+      imagem: 'mel-extintores-depois-novos.jpg',
+      fotos: [
+        { url: 'mel-extintores-antes-caixa.jpg', fase: 'Antes', legenda: 'Antes: Abrigo precisando de higienização e extintor antigo.' },
+        { url: 'mel-extintores-depois-novos.jpg', fase: 'Depois', legenda: 'Depois: Chegada dos novos extintores lacrados (ABC e CO2).' },
+        { url: 'mel-extintores-antes-antigo.jpg', fase: 'Antes', legenda: 'Antes: Retirada dos extintores antigos para substituição.' }
+      ]
+    },
+    {
+      id: 'mel_bloco2_2025',
+      titulo: 'Pintura do Bloco 02 (Em breve pintaremos os outros blocos)',
+      categoria: 'Revitalização & Obras',
+      status: 'Em Andamento',
+      data: 'Desde 2025 • Cronograma Contínuo',
+      descricao: 'Revitalização da pintura externa e lateral do Bloco 02 no padrão verde e branco do Residencial Quebec, acompanhada da nova placa identificadora "02 BLOCO".',
+      destaque_nota: '📌 Importante: Pintura do Bloco 02 realizada — em breve pintaremos os outros blocos!',
+      imagem: 'mel-bloco2-frente.jpg',
+      fotos: [
+        { url: 'mel-bloco2-frente.jpg', fase: '', legenda: 'Fachada frontal do Bloco 02 pintada em verde e branco com placa nova.' },
+        { url: 'mel-bloco2-lateral.jpg', fase: '', legenda: 'Pintura lateral do Bloco 02 concluída.' }
+      ]
+    },
+    {
+      id: 'mel_iluminacao_2025',
+      titulo: 'Melhorias na Iluminação do Condomínio',
+      categoria: 'Revitalização & Obras',
+      status: 'Concluído',
+      data: 'Desde 2025',
+      descricao: 'Instalação e manutenção de refletores LED no topo dos postes de iluminação dos pátios, corredores externos e áreas de estacionamento, garantindo mais claridade e segurança à noite.',
+      destaque_nota: 'Pátios e estacionamentos mais claros e seguros no período noturno.',
+      imagem: 'mel-iluminacao-1.jpg',
+      fotos: [
+        { url: 'mel-iluminacao-1.jpg', fase: '', legenda: 'Instalação de novos refletores LED nos postes entre os blocos.' },
+        { url: 'mel-iluminacao-2.jpg', fase: '', legenda: 'Manutenção elétrica nos postes próximos às garagens.' }
+      ]
+    },
+    {
+      id: 'mel_fechamento_bueiro_2025',
+      titulo: 'Fechamento e Sinalização de Bueiro',
+      categoria: 'Manutenção Preventiva',
+      status: 'Concluído',
+      data: 'Desde 2025',
+      descricao: 'Instalação de tela/grade metálica reforçada para fechamento seguro de bueiro no pátio, com pintura de demarcação em amarelo de segurança para evitar acidentes com pedestres, crianças e veículos.',
+      destaque_nota: 'Prevenção de acidentes e sinalização visível na via interna.',
+      imagem: 'mel-fechamento-bueiro.jpg',
+      fotos: [
+        { url: 'mel-fechamento-bueiro.jpg', fase: '', legenda: 'Fechamento de bueiro com grade metálica e pintura amarela de segurança.' }
+      ]
+    },
+    {
+      id: 'mel_caixas_gordura_2025',
+      titulo: 'Limpeza das Caixinhas de Gordura',
+      categoria: 'Manutenção Preventiva',
+      status: 'Concluído',
+      data: 'Desde 2025 • Manutenção Periódica',
+      descricao: 'Execução periódica de abertura, higienização completa, retirada de resíduos sólidos e desobstrução das caixinhas de gordura dos blocos, evitando mau cheiro e retorno nas tubulações.',
+      destaque_nota: 'Manutenção preventiva essencial para todos os blocos.',
+      imagem: 'mel-caixa-gordura.jpg',
+      fotos: [
+        { url: 'mel-caixa-gordura.jpg', fase: '', legenda: 'Caixinha de gordura aberta e higienizada durante manutenção preventiva.' }
+      ]
+    },
+    {
+      id: 'mel_dedetizacao_2025',
+      titulo: 'Dedetização do Condomínio (Semestral — Feito em Outubro)',
+      categoria: 'Manutenção Preventiva',
+      status: 'Concluído',
+      data: 'Semestral • Feito em Outubro',
+      descricao: 'Serviço profissional de dedetização e controle preventivo de pragas (baratas, formigas, escorpiões, insetos e roedores) realizado SEMESTRALMENTE com EPI completo nos ralos, caixas de passagem, jardins e áreas comuns dos Blocos 01 ao 11.',
+      destaque_nota: '📅 Dedetização: Periodicidade SEMESTRAL — Realizado em OUTUBRO.',
+      imagem: 'mel-dedetizacao-real-1.jpg',
+      fotos: [
+        { url: 'mel-dedetizacao-real-1.jpg', fase: '', legenda: 'Profissional executando a dedetização preventiva nas galerias e áreas comuns.' },
+        { url: 'mel-dedetizacao-real-2.jpg', fase: '', legenda: 'Aplicação técnica diretamente nas caixas de passagem dos blocos.' },
+        { url: 'mel-dedetizacao.jpg', fase: '', legenda: 'Prevenção de pragas para proteção da saúde e estrutura.' }
+      ]
+    },
+    {
+      id: 'mel_portaria_uniforme_2025',
+      titulo: 'Portaria Diurna Uniformizada',
+      categoria: 'Segurança & Portaria',
+      status: 'Concluído',
+      data: 'Desde 2025',
+      descricao: 'Padronização da portaria diurna e colaboradores com uniforme oficial verde ("Quebec Condomínio Residencial"), trazendo identificação imediata, organização e atendimento profissional.',
+      destaque_nota: 'Equipe uniformizada e identificada na portaria diurna.',
+      imagem: 'mel-portaria-uniforme.jpg',
+      fotos: [
+        { url: 'mel-portaria-uniforme.jpg', fase: '', legenda: 'Porteiro diurno uniformizado com a camisa oficial do Residencial Quebec.' },
+        { url: 'mel-equipe-uniformizada.jpg', fase: '', legenda: 'Equipe uniformizada atuando na conservação do condomínio.' }
+      ]
+    },
+    {
+      id: 'mel_facial_portaria_2025',
+      titulo: 'Reconhecimento Facial na Portaria e Controle de Acesso',
+      categoria: 'Segurança & Portaria',
+      status: 'Concluído',
+      data: 'Desde 2025',
+      descricao: 'Modernização do controle de acesso na portaria com reconhecimento facial, manutenção do motor do portão eletrônico, instalação de caixas metálicas de proteção, câmeras e placas de segurança.',
+      destaque_nota: 'Mais segurança e praticidade na entrada dos moradores.',
+      imagem: 'mel-portao-manutencao.jpg',
+      fotos: [
+        { url: 'mel-portao-manutencao.jpg', fase: '', legenda: 'Manutenção do motor do portão e placas de sinalização na portaria.' },
+        { url: 'mel-controle-caixa-aberta.jpg', fase: '', legenda: 'Instalação de caixa metálica protetora para equipamento de acesso.' },
+        { url: 'mel-controle-caixa-fechada.jpg', fase: '', legenda: 'Caixa de proteção instalada na parede.' },
+        { url: 'mel-extintores-depois-placas.jpg', fase: '', legenda: 'Novas câmeras e placas de sinalização para as áreas comuns.' }
+      ]
+    },
+    {
+      id: 'mel_decoracao_entrada_2025',
+      titulo: 'Decoração da Entrada do Condomínio',
+      categoria: 'Comunidade & Eventos',
+      status: 'Concluído',
+      data: 'Desde 2025',
+      descricao: 'Cuidado especial e ornamentação temática no jardim da entrada do condomínio, contando com iluminação em refletores verdes, personagens decorativos, decoração natalina e placa informativa da gestão.',
+      destaque_nota: 'Entrada acolhedora e bem cuidada para moradores e visitantes.',
+      imagem: 'mel-decoracao-entrada-1.jpg',
+      fotos: [
+        { url: 'mel-decoracao-entrada-1.jpg', fase: '', legenda: 'Decoração natalina diurna no jardim da entrada.' },
+        { url: 'mel-decoracao-entrada-2.jpg', fase: '', legenda: 'Decoração especial iluminada à noite no jardim da entrada.' },
+        { url: 'mel-grama-depois-natal.jpg', fase: '', legenda: 'Iluminação natalina noturna na entrada do Residencial Quebec.' }
+      ]
+    },
+    {
+      id: 'mel_semana_criancas_2025',
+      titulo: 'Ação Semana das Crianças',
+      categoria: 'Comunidade & Eventos',
+      status: 'Concluído',
+      data: 'Desde 2025',
+      descricao: 'Comemoração especial da Semana das Crianças realizada para os pequenos moradores do Quebec: sessão de cinema no telão à noite, bolo confeitado, cachorro-quente, refrigerante, pintura facial, desenhos para colorir e saquinhos de lembrancinhas.',
+      destaque_nota: 'Momento de alegria e confraternização para as crianças do condomínio.',
+      imagem: 'mel-criancas-bolo.jpg',
+      fotos: [
+        { url: 'mel-criancas-bolo.jpg', fase: '', legenda: 'Comemoração com bolo e refrigerantes para as crianças.' },
+        { url: 'mel-criancas-cinema.jpg', fase: '', legenda: 'Sessão de cinema no telão à noite.' },
+        { url: 'mel-criancas-pipoca.jpg', fase: '', legenda: 'Crianças reunidas assistindo ao filme com lanche.' },
+        { url: 'mel-criancas-lembrancinhas.jpg', fase: '', legenda: 'Saquinhos de doces e lembrancinhas preparados para as crianças.' },
+        { url: 'mel-criancas-pintura-rosto.jpg', fase: '', legenda: 'Pintura facial artística de borboleta.' },
+        { url: 'mel-criancas-pintura-heroi.jpg', fase: '', legenda: 'Pintura facial infantil.' },
+        { url: 'mel-parquinho-depois-cercado.jpg', fase: '', legenda: 'Brincadeiras e pintura facial ao ar livre.' },
+        { url: 'mel-criancas-desenhos.jpg', fase: '', legenda: 'Oficina de desenhos e pintura com canetinhas.' },
+        { url: 'mel-criancas-jardim.jpg', fase: '', legenda: 'Registro das crianças na área verde do condomínio.' },
+        { url: 'mel-lazer-fogao.jpg', fase: '', legenda: 'Preparo do cachorro-quente para a festa das crianças.' }
+      ]
     }
   ],
   reclamacoes: [
@@ -224,8 +435,10 @@ async function loadDatabase() {
       state.condominio = data.condominio || SEED_DB.condominio;
       state.avisos = (data.avisos && data.avisos.length > 0) ? data.avisos : SEED_DB.avisos;
       state.fechamentos = (data.fechamentos && data.fechamentos.length > 0) ? data.fechamentos : SEED_DB.fechamentos;
-      state.atas = (data.atas && data.atas.length > 0) ? data.atas : SEED_DB.atas;
-      state.melhorias = (data.melhorias && data.melhorias.length > 0) ? data.melhorias : SEED_DB.melhorias;
+      state.atas = (data.atas && data.atas.length >= 2) ? data.atas : SEED_DB.atas;
+      state.melhorias = (data.melhorias && data.melhorias.length >= 15 && data.melhorias[0].fotos)
+        ? data.melhorias
+        : SEED_DB.melhorias;
       state.reclamacoes = data.reclamacoes || SEED_DB.reclamacoes;
       state.servicos = data.servicos || SEED_DB.servicos;
       saveLocalBackup();
@@ -493,13 +706,72 @@ function renderGallery() {
   `).join('');
 }
 
-function filterMelhorias(status, btn) {
-  state.currentMelhoriaFilter = status;
+const melhoriaCardViewState = {};
+
+function getPhaseBadgeClass(fase) {
+  const f = (fase || '').toLowerCase();
+  if (f.includes('antes')) return 'phase-antes';
+  if (f.includes('durante')) return 'phase-durante';
+  if (f.includes('depois')) return 'phase-depois';
+  return 'phase-registro';
+}
+
+function filterMelhorias(catOrStatus, btn) {
+  state.currentMelhoriaFilter = catOrStatus;
   if (btn && btn.parentElement) {
     btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
   renderMelhorias();
+}
+
+function selectMelhoriaPhoto(melId, index) {
+  melhoriaCardViewState[melId] = { mode: 'single', index };
+  renderMelhorias();
+}
+
+function toggleCompareMode(melId) {
+  const current = melhoriaCardViewState[melId];
+  if (current && current.mode === 'compare') {
+    melhoriaCardViewState[melId] = { mode: 'single', index: 0 };
+  } else {
+    melhoriaCardViewState[melId] = { mode: 'compare', index: 0 };
+  }
+  renderMelhorias();
+}
+
+function openPhotoLightbox(url, title, fase, legenda) {
+  const modal = document.getElementById('photoLightboxModal');
+  const img = document.getElementById('lightboxMainImg');
+  const badge = document.getElementById('lightboxPhaseBadge');
+  const titleEl = document.getElementById('lightboxTitle');
+  const capEl = document.getElementById('lightboxCaption');
+  if (!modal || !img) return;
+
+  img.src = url;
+  img.onerror = function() {
+    if (!this.dataset.tried) {
+      this.dataset.tried = '1';
+      this.src = 'assets/' + url.split('/').pop();
+    }
+  };
+  if (badge) {
+    if (fase) {
+      badge.textContent = fase;
+      badge.className = `phase-pill ${getPhaseBadgeClass(fase)}`;
+      badge.style.display = 'inline-block';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+  if (titleEl) titleEl.textContent = title || '';
+  if (capEl) capEl.textContent = legenda || '';
+  modal.style.display = 'flex';
+}
+
+function closePhotoLightbox(e) {
+  const modal = document.getElementById('photoLightboxModal');
+  if (modal) modal.style.display = 'none';
 }
 
 function renderMelhorias() {
@@ -508,22 +780,103 @@ function renderMelhorias() {
 
   const list = state.currentMelhoriaFilter === 'Todas'
     ? state.melhorias
-    : state.melhorias.filter(m => m.status === state.currentMelhoriaFilter);
+    : state.melhorias.filter(m =>
+        m.categoria === state.currentMelhoriaFilter || m.status === state.currentMelhoriaFilter
+      );
 
   grid.innerHTML = list.map(m => {
     const badgeClass = m.status === 'Concluído' ? 'status-concluido' : 'status-andamento';
+    const fotos = (Array.isArray(m.fotos) && m.fotos.length > 0)
+      ? m.fotos
+      : [{ url: m.imagem || 'entrada-real-quebec.jpg', fase: 'Depois', legenda: m.titulo }];
+
+    const firstAntes = fotos.find(f => (f.fase || '').toLowerCase().includes('antes'));
+    const firstDepois = fotos.find(f => (f.fase || '').toLowerCase().includes('depois'));
+    const hasCompare = Boolean(firstAntes && firstDepois);
+
+    if (!melhoriaCardViewState[m.id]) {
+      melhoriaCardViewState[m.id] = {
+        mode: hasCompare ? 'compare' : 'single',
+        index: 0
+      };
+    }
+
+    const viewState = melhoriaCardViewState[m.id];
+    const activeIdx = Math.min(viewState.index || 0, fotos.length - 1);
+    const activePhoto = fotos[activeIdx] || fotos[0];
+
+    let stageHtml = '';
+    if (hasCompare && viewState.mode === 'compare') {
+      stageHtml = `
+        <div class="melhoria-split-compare">
+          <div class="melhoria-split-half" onclick="openPhotoLightbox('${escapeHtml(firstAntes.url)}', '${escapeHtml(m.titulo)}', '${escapeHtml(firstAntes.fase)}', '${escapeHtml(firstAntes.legenda)}')">
+            <span class="phase-pill phase-antes">Antes</span>
+            <img src="${escapeHtml(firstAntes.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='assets/'+this.src.split('/').pop();}" alt="Antes - ${escapeHtml(m.titulo)}" />
+            <div class="melhoria-stage-caption">
+              <span>${escapeHtml(firstAntes.legenda || 'Antes da melhoria')}</span>
+            </div>
+          </div>
+          <div class="melhoria-split-half" onclick="openPhotoLightbox('${escapeHtml(firstDepois.url)}', '${escapeHtml(m.titulo)}', '${escapeHtml(firstDepois.fase)}', '${escapeHtml(firstDepois.legenda)}')">
+            <span class="phase-pill phase-depois">Depois</span>
+            <img src="${escapeHtml(firstDepois.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='assets/'+this.src.split('/').pop();}" alt="Depois - ${escapeHtml(m.titulo)}" />
+            <div class="melhoria-stage-caption">
+              <span>${escapeHtml(firstDepois.legenda || 'Depois da melhoria')}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    } else {
+      const hasFase = Boolean(activePhoto.fase && activePhoto.fase.trim() !== '');
+      const pClass = getPhaseBadgeClass(activePhoto.fase);
+      stageHtml = `
+        <div class="melhoria-img-stage" onclick="openPhotoLightbox('${escapeHtml(activePhoto.url)}', '${escapeHtml(m.titulo)}', '${escapeHtml(activePhoto.fase || '')}', '${escapeHtml(activePhoto.legenda)}')">
+          ${hasFase ? `<span class="phase-pill ${pClass}">${escapeHtml(activePhoto.fase)}</span>` : ''}
+          <img src="${escapeHtml(activePhoto.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='assets/'+this.src.split('/').pop();}" alt="${escapeHtml(m.titulo)}" />
+          <div class="melhoria-stage-caption">
+            <span>${escapeHtml(activePhoto.legenda || m.titulo)}</span>
+            <span style="opacity:0.85; font-size:0.7rem; white-space:nowrap;">🔍 Ampliar</span>
+          </div>
+        </div>
+      `;
+    }
+
+    const thumbsHtml = (fotos.length > 1 || hasCompare) ? `
+      <div class="melhoria-thumbs-bar">
+        ${fotos.map((f, idx) => {
+          const isSelected = viewState.mode === 'single' && activeIdx === idx;
+          const hasThumbFase = Boolean(f.fase && f.fase.trim() !== '');
+          const dotClass = getPhaseBadgeClass(f.fase);
+          const shortPhase = (f.fase || '').slice(0, 3).toUpperCase();
+          return `
+            <button type="button" class="melhoria-thumb-btn ${isSelected ? 'active' : ''}" onclick="selectMelhoriaPhoto('${m.id}', ${idx})" title="${escapeHtml(f.legenda || '')}">
+              <img src="${escapeHtml(f.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='assets/'+this.src.split('/').pop();}" alt="Miniatura ${idx + 1}" />
+              ${hasThumbFase ? `<span class="thumb-phase-dot ${dotClass}">${escapeHtml(shortPhase)}</span>` : ''}
+            </button>
+          `;
+        }).join('')}
+        ${hasCompare ? `
+          <button type="button" class="compare-mode-btn ${viewState.mode === 'compare' ? 'active' : ''}" onclick="toggleCompareMode('${m.id}')">
+            ⇄ Antes & Depois
+          </button>
+        ` : `<span style="margin-left:auto; font-size:0.72rem; color:var(--text-muted); font-weight:600;">📷 ${fotos.length} fotos</span>`}
+      </div>
+    ` : '';
+
     return `
       <article class="melhoria-card">
-        <div class="melhoria-img">
-          <img src="${escapeHtml(m.imagem)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src=this.src.split('/').pop();}" alt="${escapeHtml(m.titulo)}" />
-        </div>
+        ${stageHtml}
+        ${thumbsHtml}
         <div class="melhoria-body">
           <div class="melhoria-meta">
-            <span>${escapeHtml(m.data)}</span>
-            <span class="status-badge ${badgeClass}">${escapeHtml(m.status)}</span>
+            <span class="melhoria-cat-tag">${escapeHtml(m.categoria || 'Revitalização & Obras')}</span>
+            <div style="display:flex; align-items:center; gap:0.45rem;">
+              <span>${escapeHtml(m.data || 'Desde 2025')}</span>
+              <span class="status-badge ${badgeClass}">${escapeHtml(m.status)}</span>
+            </div>
           </div>
           <h3>${escapeHtml(m.titulo)}</h3>
           <p>${escapeHtml(m.descricao)}</p>
+          ${m.destaque_nota ? `<div class="melhoria-note-highlight">${escapeHtml(m.destaque_nota)}</div>` : ''}
         </div>
       </article>
     `;
@@ -1021,79 +1374,219 @@ async function deleteAdminAta(id) {
   showToast('Ata removida.');
 }
 
-// 5. Admin Melhorias
+// 5. Admin Melhorias (Suporte a múltiplas fotos, adicionar ou substituir fotos e remover foto individual)
+let pendingMelhoriaPhotos = [];
+
 function previewMelhoriaPhoto(event) {
-  const file = event.target.files?.[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    document.getElementById('melImagemData').value = e.target.result;
-  };
-  reader.readAsDataURL(file);
+  const files = Array.from(event.target.files || []);
+  pendingMelhoriaPhotos = [];
+  const statusEl = document.getElementById('melUploadStatus');
+  if (files.length === 0) {
+    if (statusEl) statusEl.textContent = '';
+    return;
+  }
+
+  let loadedCount = 0;
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      pendingMelhoriaPhotos.push(e.target.result);
+      loadedCount++;
+      if (loadedCount === files.length) {
+        document.getElementById('melImagemData').value = pendingMelhoriaPhotos[0];
+        if (statusEl) statusEl.textContent = `✓ ${files.length} foto(s) pronta(s) para salvar.`;
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderExistingMelhoriaPhotosInForm(mel) {
+  const box = document.getElementById('melExistingPhotosBox');
+  const listEl = document.getElementById('melExistingPhotosList');
+  if (!box || !listEl) return;
+
+  const fotos = (mel && Array.isArray(mel.fotos) && mel.fotos.length > 0)
+    ? mel.fotos
+    : (mel?.imagem ? [{ url: mel.imagem, fase: '', legenda: mel.titulo }] : []);
+
+  if (!mel || fotos.length === 0) {
+    box.style.display = 'none';
+    listEl.innerHTML = '';
+    return;
+  }
+
+  box.style.display = 'block';
+  listEl.innerHTML = fotos.map((f, idx) => `
+    <div style="position:relative; width:72px; height:56px; border-radius:8px; overflow:hidden; border:1px solid var(--border-strong); background:#0f2419;">
+      <img src="${escapeHtml(f.url)}" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='assets/'+this.src.split('/').pop();}" style="width:100%; height:100%; object-fit:cover;" alt="Foto ${idx + 1}" />
+      ${f.fase ? `<span style="position:absolute; bottom:2px; left:2px; background:rgba(0,0,0,0.75); color:#fff; font-size:0.55rem; padding:1px 4px; border-radius:4px; font-weight:700;">${escapeHtml(f.fase)}</span>` : ''}
+      <button type="button" onclick="removeSinglePhotoFromMelhoria('${mel.id}', ${idx})" title="Remover esta foto" style="position:absolute; top:2px; right:2px; width:18px; height:18px; border-radius:50%; border:none; background:#b91c1c; color:#fff; font-size:0.65rem; font-weight:800; cursor:pointer; line-height:1;">✕</button>
+    </div>
+  `).join('');
+}
+
+async function removeSinglePhotoFromMelhoria(melId, photoIdx) {
+  const m = state.melhorias.find(item => item.id === melId);
+  if (!m) return;
+  if (!Array.isArray(m.fotos) || m.fotos.length <= 1) {
+    showToast('A melhoria precisa ter pelo menos 1 foto (ou substitua enviando outra).');
+    return;
+  }
+  m.fotos.splice(photoIdx, 1);
+  m.imagem = m.fotos[0].url;
+  delete melhoriaCardViewState[melId];
+
+  try {
+    await fetch('/api/melhorias', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(m)
+    });
+  } catch (err) {}
+
+  saveLocalBackup();
+  renderAll();
+  renderExistingMelhoriaPhotosInForm(m);
+  showToast('Foto removida da melhoria!');
 }
 
 function editAdminMelhoria(id) {
   const m = state.melhorias.find(item => item.id === id);
   if (!m) return;
+  pendingMelhoriaPhotos = [];
+  const statusEl = document.getElementById('melUploadStatus');
+  if (statusEl) statusEl.textContent = '';
+
   document.getElementById('melEditId').value = m.id;
   document.getElementById('melTitulo').value = m.titulo;
+  if (document.getElementById('melCategoria')) {
+    document.getElementById('melCategoria').value = m.categoria || 'Revitalização & Obras';
+  }
   document.getElementById('melStatus').value = m.status || 'Concluído';
-  document.getElementById('melData').value = m.data || '';
+  document.getElementById('melData').value = m.data || 'Desde 2025';
   document.getElementById('melDescricao').value = m.descricao || '';
+  if (document.getElementById('melDestaqueNota')) {
+    document.getElementById('melDestaqueNota').value = m.destaque_nota || '';
+  }
   document.getElementById('melImagemData').value = m.imagem || '';
   document.getElementById('btnCancelMelEdit').style.display = 'inline-flex';
+  renderExistingMelhoriaPhotosInForm(m);
+  document.getElementById('formMelhoriaHeading')?.scrollIntoView({ behavior: 'smooth' });
 }
 
 function resetMelhoriaForm() {
   document.getElementById('formAdminMelhoria').reset();
   document.getElementById('melEditId').value = '';
   document.getElementById('melImagemData').value = '';
+  pendingMelhoriaPhotos = [];
+  const statusEl = document.getElementById('melUploadStatus');
+  if (statusEl) statusEl.textContent = '';
+  const box = document.getElementById('melExistingPhotosBox');
+  if (box) box.style.display = 'none';
   document.getElementById('btnCancelMelEdit').style.display = 'none';
 }
 
 async function handleAdminSaveMelhoria(e) {
   e.preventDefault();
   const editId = document.getElementById('melEditId').value;
-  const payload = {
-    titulo: document.getElementById('melTitulo').value.trim(),
-    status: document.getElementById('melStatus').value,
-    data: document.getElementById('melData').value.trim(),
-    descricao: document.getElementById('melDescricao').value.trim(),
-    imagem: document.getElementById('melImagemData').value || 'assets/fachada-quebec.png'
-  };
+  const faseEscolhida = document.getElementById('melFotoFase')?.value || '';
+  const modoFoto = document.getElementById('melFotoModo')?.value || 'add';
+  const tituloVal = document.getElementById('melTitulo').value.trim();
+
+  const novasFotosObjs = pendingMelhoriaPhotos.map(url => ({
+    url,
+    fase: faseEscolhida,
+    legenda: tituloVal
+  }));
 
   if (editId) {
     const idx = state.melhorias.findIndex(m => m.id === editId);
-    if (idx !== -1) state.melhorias[idx] = { ...state.melhorias[idx], ...payload };
+    if (idx !== -1) {
+      const atual = state.melhorias[idx];
+      let fotosFinais = Array.isArray(atual.fotos) ? [...atual.fotos] : [];
+      if (novasFotosObjs.length > 0) {
+        fotosFinais = modoFoto === 'replace'
+          ? novasFotosObjs
+          : [...fotosFinais, ...novasFotosObjs];
+      }
+      const updated = {
+        ...atual,
+        titulo: tituloVal,
+        categoria: document.getElementById('melCategoria')?.value || 'Revitalização & Obras',
+        status: document.getElementById('melStatus').value,
+        data: document.getElementById('melData').value.trim(),
+        descricao: document.getElementById('melDescricao').value.trim(),
+        destaque_nota: document.getElementById('melDestaqueNota')?.value.trim() || '',
+        fotos: fotosFinais,
+        imagem: fotosFinais[0]?.url || atual.imagem || 'mel-bloco2-frente.jpg'
+      };
+      state.melhorias[idx] = updated;
+      delete melhoriaCardViewState[editId];
+      try {
+        await fetch('/api/melhorias', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updated)
+        });
+      } catch (err) {}
+    }
   } else {
-    state.melhorias.unshift({ id: `mel_${Date.now()}`, ...payload });
+    const fotosIniciais = novasFotosObjs.length > 0
+      ? novasFotosObjs
+      : [{ url: 'mel-bloco2-frente.jpg', fase: faseEscolhida, legenda: tituloVal }];
+    const nova = {
+      id: `mel_${Date.now()}`,
+      titulo: tituloVal,
+      categoria: document.getElementById('melCategoria')?.value || 'Revitalização & Obras',
+      status: document.getElementById('melStatus').value,
+      data: document.getElementById('melData').value.trim(),
+      descricao: document.getElementById('melDescricao').value.trim(),
+      destaque_nota: document.getElementById('melDestaqueNota')?.value.trim() || '',
+      imagem: fotosIniciais[0].url,
+      fotos: fotosIniciais
+    };
+    state.melhorias.unshift(nova);
+    try {
+      await fetch('/api/melhorias', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(nova)
+      });
+    } catch (err) {}
   }
 
   resetMelhoriaForm();
   saveLocalBackup();
   renderAll();
-  showToast('Melhoria salva!');
+  showToast('Melhoria e fotos salvas com sucesso!');
 }
 
 function renderAdminMelhorias() {
   const el = document.getElementById('adminMelhoriasList');
   if (!el) return;
-  el.innerHTML = state.melhorias.map(m => `
-    <div style="padding:0.8rem 0; border-bottom:1px solid var(--border-soft); display:flex; justify-content:space-between; align-items:center; gap:0.75rem;">
-      <div>
-        <strong style="font-size:0.9rem; color:var(--green-forest); display:block;">${escapeHtml(m.titulo)}</strong>
-        <span style="font-size:0.78rem; color:var(--text-muted);">${escapeHtml(m.status)} • ${escapeHtml(m.data)}</span>
+  el.innerHTML = state.melhorias.map(m => {
+    const qtdFotos = Array.isArray(m.fotos) ? m.fotos.length : 1;
+    return `
+      <div style="padding:0.8rem 0; border-bottom:1px solid var(--border-soft); display:flex; justify-content:space-between; align-items:center; gap:0.75rem;">
+        <div>
+          <strong style="font-size:0.9rem; color:var(--green-forest); display:block;">${escapeHtml(m.titulo)}</strong>
+          <span style="font-size:0.76rem; color:var(--text-muted);">${escapeHtml(m.categoria || '')} • ${escapeHtml(m.status)} • 📷 ${qtdFotos} foto(s)</span>
+        </div>
+        <div style="display:flex; gap:0.4rem;">
+          <button class="btn btn-outline btn-sm" onclick="editAdminMelhoria('${m.id}')">Editar / Fotos</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteAdminMelhoria('${m.id}')">Excluir</button>
+        </div>
       </div>
-      <div style="display:flex; gap:0.4rem;">
-        <button class="btn btn-outline btn-sm" onclick="editAdminMelhoria('${m.id}')">Editar</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteAdminMelhoria('${m.id}')">Excluir</button>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 async function deleteAdminMelhoria(id) {
   state.melhorias = state.melhorias.filter(m => m.id !== id);
+  try {
+    await fetch(`/api/melhorias?id=${encodeURIComponent(id)}`, { method: 'DELETE' });
+  } catch (err) {}
   saveLocalBackup();
   renderAll();
   showToast('Melhoria removida.');

@@ -127,8 +127,8 @@
         <button class="quick-card" onclick="switchTab('atas')">
           <div class="quick-card-icon">📋</div>
           <div>
-            <strong>Atas de Reunião</strong>
-            <span>Visualizar PDF registrado em cartório</span>
+            <strong>Atas & Regimento</strong>
+            <span>Atas de Assembleia e Regimento Interno em PDF</span>
           </div>
         </button>
         <button class="quick-card" onclick="switchTab('reclamacoes')">
@@ -256,14 +256,14 @@
     </section>
 
     <!-- ==========================================
-         ABA 4: ATAS DE ASSEMBLEIA (VISUALIZAÇÃO LIMPA EM PDF!)
+         ABA 4: ATAS DE ASSEMBLEIA E REGIMENTO INTERNO (VISUALIZAÇÃO LIMPA EM PDF!)
          ========================================== -->
     <section id="tab-atas" class="tab-panel">
       <div class="section-header">
         <div class="section-header-left">
           <span class="eyebrow">Documentação Oficial Registrada em Cartório</span>
-          <h2>Atas de Reunião e Assembleia</h2>
-          <p>Visualize na tela ou baixe o arquivo PDF escaneado das Atas de Assembleia do Condomínio Residencial Quebec.</p>
+          <h2>Atas de Assembleia e Regimento Interno</h2>
+          <p>Visualize na tela ou baixe os arquivos PDF oficiais das <strong>Atas de Assembleia</strong> e do <strong>Regimento Interno</strong> do Condomínio Residencial Quebec.</p>
         </div>
       </div>
 
@@ -295,23 +295,49 @@
     </section>
 
     <!-- ==========================================
-         ABA 5: MELHORIAS REALIZADAS
+         ABA 5: MELHORIAS REALIZADAS (DESDE 2025)
          ========================================== -->
     <section id="tab-melhorias" class="tab-panel">
       <div class="section-header">
         <div class="section-header-left">
-          <span class="eyebrow">Valorização Patrimonial</span>
-          <h2>Melhorias e Obras no Condomínio</h2>
-          <p>Obras e benfeitorias executadas pela gestão do Síndico Celson Rodrigues e Sub-Síndico Sidney Loiola.</p>
-        </div>
-        <div class="filter-bar">
-          <button class="filter-btn active" onclick="filterMelhorias('Todas', this)">Todas</button>
-          <button class="filter-btn" onclick="filterMelhorias('Concluído', this)">Concluídas</button>
-          <button class="filter-btn" onclick="filterMelhorias('Em Andamento', this)">Em Andamento</button>
+          <span class="eyebrow">Valorização Patrimonial • Desde 2025</span>
+          <h2>Melhorias, Obras e Ações no Condomínio (Desde 2025)</h2>
+          <p>Confira o <strong>Antes e Depois</strong> e os registros reais das benfeitorias realizadas pela gestão do Síndico Celson Rodrigues e Sub-Síndico Sidney Loiola, organizadas por categoria.</p>
         </div>
       </div>
 
-      <div id="melhoriasGrid" class="grid-2"></div>
+      <!-- Destaques de Regularização e Manutenção Periódica (AVCB, Extintores e Dedetização) -->
+      <div class="grid-3" style="margin-bottom: 1.35rem;">
+        <div class="card" style="padding:1rem 1.2rem; border-left:4px solid var(--green-primary); background:var(--bg-soft-green);">
+          <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:var(--green-primary); letter-spacing:0.04em;">🚒 Corpo de Bombeiros MG</span>
+          <strong style="display:block; font-size:1.02rem; color:var(--green-forest); margin-top:0.2rem;">AVCB Atualizado • Validade 5 Anos</strong>
+          <span style="font-size:0.82rem; color:var(--text-body);">Nº PRJ20260161622 • Válido até <strong>19/08/2031</strong></span>
+        </div>
+        <div class="card" style="padding:1rem 1.2rem; border-left:4px solid var(--green-primary); background:var(--bg-soft-green);">
+          <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:var(--green-primary); letter-spacing:0.04em;">🧯 Prevenção Contra Incêndio</span>
+          <strong style="display:block; font-size:1.02rem; color:var(--green-forest); margin-top:0.2rem;">Recarga de Extintores • Anual</strong>
+          <span style="font-size:0.82rem; color:var(--text-body);">Manutenção anual realizada em <strong>Novembro</strong></span>
+        </div>
+        <div class="card" style="padding:1rem 1.2rem; border-left:4px solid var(--green-primary); background:var(--bg-soft-green);">
+          <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:var(--green-primary); letter-spacing:0.04em;">🛡️ Controle de Pragas & Saúde</span>
+          <strong style="display:block; font-size:1.02rem; color:var(--green-forest); margin-top:0.2rem;">Dedetização • Semestral</strong>
+          <span style="font-size:0.82rem; color:var(--text-body);">Manutenção semestral — <strong>Feito em Outubro</strong></span>
+        </div>
+      </div>
+
+      <!-- Barra de Categorias de Melhorias -->
+      <div class="melhorias-toolbar">
+        <div class="filter-bar" id="melhoriasCategoryBar">
+          <button class="filter-btn active" onclick="filterMelhorias('Todas', this)">Todas (15)</button>
+          <button class="filter-btn" onclick="filterMelhorias('Revitalização & Obras', this)">🏗️ Revitalização & Obras</button>
+          <button class="filter-btn" onclick="filterMelhorias('Jardinagem & Paisagismo', this)">🌱 Jardinagem & Paisagismo</button>
+          <button class="filter-btn" onclick="filterMelhorias('Segurança & Portaria', this)">🛡️ Segurança & Portaria</button>
+          <button class="filter-btn" onclick="filterMelhorias('Manutenção Preventiva', this)">🧯 Manutenção Preventiva</button>
+          <button class="filter-btn" onclick="filterMelhorias('Comunidade & Eventos', this)">🎈 Comunidade & Eventos</button>
+        </div>
+      </div>
+
+      <div id="melhoriasGrid" class="melhorias-showcase-grid"></div>
     </section>
 
     <!-- ==========================================
@@ -754,6 +780,16 @@
                   <label>Título da Melhoria *</label>
                   <input type="text" id="melTitulo" class="form-control" required placeholder="Ex.: Pintura do Bloco 02" />
                 </div>
+                <div class="form-group">
+                  <label>Categoria *</label>
+                  <select id="melCategoria" class="form-control">
+                    <option value="Revitalização & Obras">Revitalização & Obras</option>
+                    <option value="Jardinagem & Paisagismo">Jardinagem & Paisagismo</option>
+                    <option value="Segurança & Portaria">Segurança & Portaria</option>
+                    <option value="Manutenção Preventiva">Manutenção Preventiva</option>
+                    <option value="Comunidade & Eventos">Comunidade & Eventos</option>
+                  </select>
+                </div>
                 <div class="form-grid">
                   <div class="form-group">
                     <label>Status *</label>
@@ -764,7 +800,7 @@
                   </div>
                   <div class="form-group">
                     <label>Período / Data *</label>
-                    <input type="text" id="melData" class="form-control" required placeholder="Ex.: Outubro/2026" />
+                    <input type="text" id="melData" class="form-control" required placeholder="Ex.: Desde 2025" />
                   </div>
                 </div>
                 <div class="form-group">
@@ -772,9 +808,35 @@
                   <textarea id="melDescricao" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
-                  <label>Foto da Melhoria</label>
-                  <input type="file" id="melFotoFile" accept="image/*" class="form-control" onchange="previewMelhoriaPhoto(event)" />
+                  <label>Nota de Destaque (Opcional)</label>
+                  <input type="text" id="melDestaqueNota" class="form-control" placeholder="Ex.: Agora contamos com churrasqueira, freezer e TV!" />
+                </div>
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label>Etiqueta da(s) Foto(s)</label>
+                    <select id="melFotoFase" class="form-control">
+                      <option value="">Sem etiqueta (Foto Normal)</option>
+                      <option value="Antes">Antes</option>
+                      <option value="Depois">Depois</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Modo ao Enviar Foto(s)</label>
+                    <select id="melFotoModo" class="form-control">
+                      <option value="add">Adicionar à galeria desta melhoria</option>
+                      <option value="replace">Substituir todas as fotos atuais</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Selecionar Nova(s) Foto(s) (Pode escolher várias de uma vez)</label>
+                  <input type="file" id="melFotoFile" accept="image/*" multiple class="form-control" onchange="previewMelhoriaPhoto(event)" />
                   <input type="hidden" id="melImagemData" value="" />
+                  <small id="melUploadStatus" style="display:block; margin-top:0.35rem; color:var(--green-primary); font-weight:600;"></small>
+                </div>
+                <div id="melExistingPhotosBox" style="display:none; margin-bottom:1rem; padding:0.75rem; background:var(--bg-soft-green); border-radius:10px; border:1px solid var(--border-soft);">
+                  <label style="font-size:0.78rem; font-weight:700; color:var(--green-forest); display:block; margin-bottom:0.5rem;">Fotos Atuais Desta Melhoria (Clique em ✕ para remover):</label>
+                  <div id="melExistingPhotosList" style="display:flex; gap:0.5rem; flex-wrap:wrap;"></div>
                 </div>
                 <div style="display:flex; gap:0.5rem;">
                   <button type="submit" class="btn btn-primary" style="flex:1;">Salvar Melhoria</button>
@@ -881,6 +943,21 @@
       <span>Ouvidoria</span>
     </button>
   </nav>
+
+  <!-- Lightbox Modal para Ampliar Fotos de Antes e Depois -->
+  <div id="photoLightboxModal" class="photo-lightbox-backdrop" onclick="closePhotoLightbox(event)" style="display:none;">
+    <div class="photo-lightbox-content" onclick="event.stopPropagation()">
+      <button type="button" class="photo-lightbox-close" onclick="closePhotoLightbox()">✕ Fechar</button>
+      <div class="photo-lightbox-img-wrap">
+        <span id="lightboxPhaseBadge" class="phase-pill"></span>
+        <img id="lightboxMainImg" src="" alt="Foto Ampliada" />
+      </div>
+      <div class="photo-lightbox-caption">
+        <strong id="lightboxTitle"></strong>
+        <p id="lightboxCaption"></p>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Container -->
   <div id="toastContainer" class="toast-container"></div>

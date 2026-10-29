@@ -692,6 +692,22 @@ body {
   color: var(--text-muted);
 }
 
+.melhorias-toolbar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem 1.15rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-xs);
+  overflow-x: auto;
+}
+
+.melhorias-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
 .melhoria-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-soft);
@@ -700,18 +716,181 @@ body {
   box-shadow: var(--shadow-xs);
   display: flex;
   flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.melhoria-img {
-  height: 190px;
+.melhoria-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.melhoria-img-stage {
+  position: relative;
+  height: 265px;
   overflow: hidden;
-  background: var(--bg-soft-green);
+  background: #0f2419;
+  cursor: pointer;
 }
 
-.melhoria-img img {
+.melhoria-img-stage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.melhoria-img-stage:hover img {
+  transform: scale(1.02);
+}
+
+/* Split Antes & Depois View inside Card */
+.melhoria-split-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 265px;
+  gap: 2px;
+  background: #ffffff;
+}
+
+.melhoria-split-half {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  background: #0f2419;
+}
+
+.melhoria-split-half img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.melhoria-split-half:hover img {
+  transform: scale(1.04);
+}
+
+.phase-pill {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  z-index: 3;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.phase-antes {
+  background: #b91c1c;
+  color: #ffffff;
+}
+
+.phase-durante {
+  background: #d97706;
+  color: #ffffff;
+}
+
+.phase-depois {
+  background: #15803d;
+  color: #ffffff;
+}
+
+.phase-registro {
+  background: var(--green-forest);
+  color: #ffffff;
+}
+
+.melhoria-stage-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.4rem 0.85rem 0.55rem;
+  background: linear-gradient(to top, rgba(10, 28, 19, 0.88), transparent);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.melhoria-thumbs-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1rem;
+  background: var(--bg-soft-green);
+  border-bottom: 1px solid var(--border-soft);
+  overflow-x: auto;
+}
+
+.melhoria-thumb-btn {
+  position: relative;
+  width: 54px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: #0f2419;
+  transition: all 0.15s ease;
+}
+
+.melhoria-thumb-btn.active {
+  border-color: var(--green-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(27, 77, 52, 0.25);
+}
+
+.melhoria-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb-phase-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 0.54rem;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 4px;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.compare-mode-btn {
+  margin-left: auto;
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  color: var(--green-forest);
+  border-radius: 999px;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.compare-mode-btn:hover,
+.compare-mode-btn.active {
+  background: var(--green-forest);
+  color: #ffffff;
+  border-color: var(--green-forest);
 }
 
 .melhoria-body {
@@ -725,14 +904,26 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.55rem;
-  font-size: 0.78rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.65rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
+}
+
+.melhoria-cat-tag {
+  background: var(--bg-soft-green);
+  color: var(--green-primary);
+  border: 1px solid var(--border-strong);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.71rem;
+  font-weight: 700;
 }
 
 .melhoria-body h3 {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.14rem;
   color: var(--green-forest);
   margin-bottom: 0.45rem;
 }
@@ -740,8 +931,97 @@ body {
 .melhoria-body p {
   font-size: 0.87rem;
   color: var(--text-body);
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
   flex: 1;
+}
+
+.melhoria-note-highlight {
+  background: var(--bg-soft-green);
+  border-left: 3px solid var(--green-primary);
+  padding: 0.55rem 0.75rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.79rem;
+  color: var(--green-forest);
+  font-weight: 600;
+}
+
+/* Lightbox Modal */
+.photo-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 22, 15, 0.86);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.photo-lightbox-content {
+  position: relative;
+  max-width: 860px;
+  width: 100%;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.photo-lightbox-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 5;
+  background: rgba(15, 36, 25, 0.85);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.photo-lightbox-img-wrap {
+  position: relative;
+  background: #091710;
+  max-height: 74vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-lightbox-img-wrap img {
+  max-width: 100%;
+  max-height: 74vh;
+  object-fit: contain;
+  display: block;
+}
+
+.photo-lightbox-caption {
+  padding: 1rem 1.35rem;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-soft);
+}
+
+.photo-lightbox-caption strong {
+  display: block;
+  color: var(--green-forest);
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.photo-lightbox-caption p {
+  font-size: 0.86rem;
+  color: var(--text-body);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .melhorias-showcase-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .status-badge {
