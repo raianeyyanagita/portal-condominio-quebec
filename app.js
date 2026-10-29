@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'condominio_quebec_db_v18';
+const STORAGE_KEY = 'condominio_quebec_db_v20';
 
 const SEED_DB = {
   condominio: {
@@ -93,8 +93,8 @@ const SEED_DB = {
       arquivo_url: 'regimento-interno-quebec.pdf'
     }
   ],
-  melhorias: [
-    {
+melhorias: [
+{
       id: 'mel_avcb_2026',
       titulo: 'AVCB Atualizado — Auto de Vistoria do Corpo de Bombeiros (Validade 5 Anos)',
       categoria: 'Manutenção Preventiva',
@@ -104,7 +104,7 @@ const SEED_DB = {
       destaque_nota: '🚒 AVCB Atualizado — Validade de 5 anos (Emitido em 19/08/2026 • Válido até 19/08/2031).',
       imagem: 'mel-avcb-bombeiros.jpg',
       fotos: [
-        { url: 'mel-avcb-bombeiros.jpg', fase: 'AVCB 2026', legenda: 'Certificado oficial AVCB — Corpo de Bombeiros Militar de Minas Gerais (Validade até 19/08/2031).' }
+        { url: 'mel-avcb-bombeiros.jpg', fase: '', legenda: 'Certificado oficial AVCB — Corpo de Bombeiros Militar de Minas Gerais (Validade até 19/08/2031).' }
       ]
     },
     {
@@ -115,9 +115,10 @@ const SEED_DB = {
       data: 'Desde 2025',
       descricao: 'Reforma e revitalização completa da lixeira coletiva: retirada de entulhos acumulados, pintura externa em cinza escuro, nova porta metálica sinalizada ("Depósito de Lixo — Proibido Colocar Entulho"), construção de muro branco de proteção visual, suporte para saquinhos e jardim.',
       destaque_nota: 'Antes e Depois: organização total, higiene e fim do descarte irregular.',
-      imagem: 'convivencia-jardim.png',
+      imagem: 'mel-lixeira-depois.jpg',
       fotos: [
-        { url: 'convivencia-jardim.png', fase: 'Concluído', legenda: 'Depósito revitalizado, pintado, sinalizado e protegido por muro novo.' }
+        { url: 'mel-lixeira-antes.jpg', fase: 'Antes', legenda: 'Antes: Área aberta com acúmulo de madeira, papelão e entulhos.' },
+        { url: 'mel-lixeira-depois.jpg', fase: 'Depois', legenda: 'Depois: Depósito revitalizado, pintado, sinalizado e protegido por muro novo.' }
       ]
     },
     {
@@ -130,7 +131,8 @@ const SEED_DB = {
       destaque_nota: '✨ Agora disponibilizamos uma área de lazer completa com churrasqueira, freezer, televisão, fogão e outros!',
       imagem: 'mel-lazer-depois-obra.jpg',
       fotos: [
-        { url: 'mel-lazer-depois-obra.jpg', fase: 'Concluído', legenda: 'Área revitalizada, pintada e equipada com churrasqueira, freezer, televisão, fogão e outros.' }
+        { url: 'mel-lazer-antes.jpg', fase: 'Antes', legenda: 'Antes: Paredes da churrasqueira e área de lazer com pichações.' },
+        { url: 'mel-lazer-depois-obra.jpg', fase: 'Depois', legenda: 'Depois: Área revitalizada, pintada e equipada com churrasqueira, freezer, televisão e outros.' }
       ]
     },
     {
@@ -141,9 +143,13 @@ const SEED_DB = {
       data: 'Desde 2025',
       descricao: 'Implantação do Projeto Grama Mais Verde nos taludes e jardins do Condomínio Residencial Quebec: aquisição dos paletes de grama natural, plantio nos barrancos, irrigação diária e placas de preservação ("Não Pise na Grama").',
       destaque_nota: 'Mais verde, valorização visual e conservação das áreas comuns.',
-      imagem: 'convivencia-jardim.png',
+      imagem: 'mel-grama-depois-talude.jpg',
       fotos: [
-        { url: 'convivencia-jardim.png', fase: 'Concluído', legenda: 'Gramado verdinho e fechado nos taludes e jardins do condomínio.' }
+        { url: 'mel-grama-depois-talude.jpg', fase: '', legenda: 'Gramado verdinho e fechado nos taludes do condomínio.' },
+        { url: 'mel-grama-depois-placa.jpg', fase: '', legenda: 'Cuidado com o gramado e placa educativa "Não Pise na Grama".' },
+        { url: 'mel-grama-durante-irrigacao.jpg', fase: '', legenda: 'Irrigação e cuidado diário com a grama.' },
+        { url: 'mel-grama-antes-plantio.jpg', fase: '', legenda: 'Etapa de assentamento dos tapetes de grama.' },
+        { url: 'mel-grama-antes-paletes.jpg', fase: '', legenda: 'Chegada dos paletes de grama natural no condomínio.' }
       ]
     },
     {
@@ -154,22 +160,26 @@ const SEED_DB = {
       data: 'Desde 2025',
       descricao: 'Revitalização e manutenção dos brinquedos do parquinho infantil: estrutura de madeira com escorregador, rampa de escalada, ponte, balanços e fixação com concreto do gira-gira azul.',
       destaque_nota: 'Mais segurança e lazer para as crianças do condomínio.',
-      imagem: 'convivencia-jardim.png',
+      imagem: 'mel-parquinho-antes-madeira.jpg',
       fotos: [
-        { url: 'convivencia-jardim.png', fase: 'Concluído', legenda: 'Estrutura completa de brinquedos de madeira e lazer infantil.' }
+        { url: 'mel-parquinho-antes-madeira.jpg', fase: '', legenda: 'Parquinho infantil de madeira com escorregador e ponte.' },
+        { url: 'mel-parquinho-antes-estrutura.jpg', fase: '', legenda: 'Estrutura completa com rampa de escalada e balanços.' },
+        { url: 'mel-parquinho-durante-giragira.jpg', fase: '', legenda: 'Fixação da base de concreto do gira-gira azul e balanços.' }
       ]
     },
     {
       id: 'mel_extintores_2025',
-      titulo: 'Troca e Recarga de Extintores (Manutenção Anual — Novembro)',
+      titulo: 'Troca de Extintores (Manutenção)',
       categoria: 'Manutenção Preventiva',
       status: 'Concluído',
-      data: 'Anual • Novembro',
-      descricao: 'Manutenção preventiva anual de segurança contra incêndio realizada no mês de Novembro: retirada dos extintores antigos, higienização dos abrigos nos blocos e instalação dos extintores recarregados, lacrados e inspecionados pelo INMETRO (Pó Químico Seco ABC e CO2).',
-      destaque_nota: '📅 Recarga de Extintores: Manutenção ANUAL realizada em NOVEMBRO.',
-      imagem: 'blocos-patio.png',
+      data: 'Desde 2025',
+      descricao: 'Manutenção preventiva de segurança contra incêndio: retirada dos extintores antigos vencidos, limpeza dos abrigos nos blocos e chegada dos novos extintores lacrados e inspecionados pelo INMETRO (Pó Químico Seco ABC e CO2).',
+      destaque_nota: 'Antes e Depois: equipamentos novos e dentro das normas de segurança.',
+      imagem: 'mel-extintores-depois-novos.jpg',
       fotos: [
-        { url: 'blocos-patio.png', fase: 'Anual • Nov', legenda: 'Extintores recarregados, lacrados e inspecionados pelo INMETRO nos blocos.' }
+        { url: 'mel-extintores-antes-caixa.jpg', fase: 'Antes', legenda: 'Antes: Abrigo precisando de higienização e extintor antigo.' },
+        { url: 'mel-extintores-depois-novos.jpg', fase: 'Depois', legenda: 'Depois: Chegada dos novos extintores lacrados (ABC e CO2).' },
+        { url: 'mel-extintores-antes-antigo.jpg', fase: 'Antes', legenda: 'Antes: Retirada dos extintores antigos para substituição.' }
       ]
     },
     {
@@ -182,7 +192,8 @@ const SEED_DB = {
       destaque_nota: '📌 Importante: Pintura do Bloco 02 realizada — em breve pintaremos os outros blocos!',
       imagem: 'mel-bloco2-frente.jpg',
       fotos: [
-        { url: 'mel-bloco2-frente.jpg', fase: 'Em Andamento', legenda: 'Fachada frontal do Bloco 02 pintada em verde e branco com placa nova.' }
+        { url: 'mel-bloco2-frente.jpg', fase: '', legenda: 'Fachada frontal do Bloco 02 pintada em verde e branco com placa nova.' },
+        { url: 'mel-bloco2-lateral.jpg', fase: '', legenda: 'Pintura lateral do Bloco 02 concluída.' }
       ]
     },
     {
@@ -193,9 +204,10 @@ const SEED_DB = {
       data: 'Desde 2025',
       descricao: 'Instalação e manutenção de refletores LED no topo dos postes de iluminação dos pátios, corredores externos e áreas de estacionamento, garantindo mais claridade e segurança à noite.',
       destaque_nota: 'Pátios e estacionamentos mais claros e seguros no período noturno.',
-      imagem: 'blocos-patio.png',
+      imagem: 'mel-iluminacao-1.jpg',
       fotos: [
-        { url: 'blocos-patio.png', fase: 'Concluído', legenda: 'Refletores LED nos postes entre os blocos e estacionamento.' }
+        { url: 'mel-iluminacao-1.jpg', fase: '', legenda: 'Instalação de novos refletores LED nos postes entre os blocos.' },
+        { url: 'mel-iluminacao-2.jpg', fase: '', legenda: 'Manutenção elétrica nos postes próximos às garagens.' }
       ]
     },
     {
@@ -206,9 +218,9 @@ const SEED_DB = {
       data: 'Desde 2025',
       descricao: 'Instalação de tela/grade metálica reforçada para fechamento seguro de bueiro no pátio, com pintura de demarcação em amarelo de segurança para evitar acidentes com pedestres, crianças e veículos.',
       destaque_nota: 'Prevenção de acidentes e sinalização visível na via interna.',
-      imagem: 'blocos-patio.png',
+      imagem: 'mel-fechamento-bueiro.jpg',
       fotos: [
-        { url: 'blocos-patio.png', fase: 'Concluído', legenda: 'Fechamento de bueiro com grade metálica e pintura amarela de segurança.' }
+        { url: 'mel-fechamento-bueiro.jpg', fase: '', legenda: 'Fechamento de bueiro com grade metálica e pintura amarela de segurança.' }
       ]
     },
     {
@@ -219,22 +231,24 @@ const SEED_DB = {
       data: 'Desde 2025 • Manutenção Periódica',
       descricao: 'Execução periódica de abertura, higienização completa, retirada de resíduos sólidos e desobstrução das caixinhas de gordura dos blocos, evitando mau cheiro e retorno nas tubulações.',
       destaque_nota: 'Manutenção preventiva essencial para todos os blocos.',
-      imagem: 'blocos-patio.png',
+      imagem: 'mel-caixa-gordura.jpg',
       fotos: [
-        { url: 'blocos-patio.png', fase: 'Concluído', legenda: 'Caixinha de gordura higienizada durante manutenção preventiva dos blocos.' }
+        { url: 'mel-caixa-gordura.jpg', fase: '', legenda: 'Caixinha de gordura aberta e higienizada durante manutenção preventiva.' }
       ]
     },
     {
       id: 'mel_dedetizacao_2025',
-      titulo: 'Dedetização do Condomínio (Semestral — Feito em Outubro)',
+      titulo: 'Dedetização do Condomínio',
       categoria: 'Manutenção Preventiva',
       status: 'Concluído',
-      data: 'Semestral • Feito em Outubro',
-      descricao: 'Serviço profissional de dedetização e controle preventivo de pragas (baratas, formigas, escorpiões, insetos e roedores) realizado SEMESTRALMENTE com EPI completo nos ralos, caixas de passagem, jardins e áreas comuns dos Blocos 01 ao 11.',
-      destaque_nota: '📅 Dedetização: Periodicidade SEMESTRAL — Realizado em OUTUBRO.',
+      data: 'Desde 2025 • Controle de Pragas',
+      descricao: 'Serviço profissional de dedetização e controle preventivo de pragas (baratas, formigas, escorpiões, insetos e roedores) executado com EPI completo nos ralos, caixas de passagem, jardins e áreas comuns dos Blocos 01 ao 11.',
+      destaque_nota: 'Equipe técnica especializada atuando na proteção à saúde e higiene do Residencial Quebec.',
       imagem: 'mel-dedetizacao-real-1.jpg',
       fotos: [
-        { url: 'mel-dedetizacao-real-1.jpg', fase: 'Semestral', legenda: 'Profissional executando a dedetização preventiva nas galerias e áreas comuns.' }
+        { url: 'mel-dedetizacao-real-1.jpg', fase: '', legenda: 'Profissional executando a dedetização preventiva nas galerias e áreas comuns.' },
+        { url: 'mel-dedetizacao-real-2.jpg', fase: '', legenda: 'Aplicação técnica diretamente nas caixas de passagem dos blocos.' },
+        { url: 'mel-dedetizacao.jpg', fase: '', legenda: 'Prevenção de pragas para proteção da saúde e estrutura.' }
       ]
     },
     {
@@ -245,9 +259,10 @@ const SEED_DB = {
       data: 'Desde 2025',
       descricao: 'Padronização da portaria diurna e colaboradores com uniforme oficial verde ("Quebec Condomínio Residencial"), trazendo identificação imediata, organização e atendimento profissional.',
       destaque_nota: 'Equipe uniformizada e identificada na portaria diurna.',
-      imagem: 'entrada-real-quebec.jpg',
+      imagem: 'mel-portaria-uniforme.jpg',
       fotos: [
-        { url: 'entrada-real-quebec.jpg', fase: 'Concluído', legenda: 'Portaria diurna e equipe identificada com o padrão oficial do Residencial Quebec.' }
+        { url: 'mel-portaria-uniforme.jpg', fase: '', legenda: 'Porteiro diurno uniformizado com a camisa oficial do Residencial Quebec.' },
+        { url: 'mel-equipe-uniformizada.jpg', fase: '', legenda: 'Equipe uniformizada atuando na conservação do condomínio.' }
       ]
     },
     {
@@ -258,9 +273,12 @@ const SEED_DB = {
       data: 'Desde 2025',
       descricao: 'Modernização do controle de acesso na portaria com reconhecimento facial, manutenção do motor do portão eletrônico, instalação de caixas metálicas de proteção, câmeras e placas de segurança.',
       destaque_nota: 'Mais segurança e praticidade na entrada dos moradores.',
-      imagem: 'entrada-real-quebec.jpg',
+      imagem: 'mel-portao-manutencao.jpg',
       fotos: [
-        { url: 'entrada-real-quebec.jpg', fase: 'Concluído', legenda: 'Manutenção do motor do portão, interfonia e controle de acesso.' }
+        { url: 'mel-portao-manutencao.jpg', fase: '', legenda: 'Manutenção do motor do portão e placas de sinalização na portaria.' },
+        { url: 'mel-controle-caixa-aberta.jpg', fase: '', legenda: 'Instalação de caixa metálica protetora para equipamento de acesso.' },
+        { url: 'mel-controle-caixa-fechada.jpg', fase: '', legenda: 'Caixa de proteção instalada na parede.' },
+        { url: 'mel-extintores-depois-placas.jpg', fase: '', legenda: 'Novas câmeras e placas de sinalização para as áreas comuns.' }
       ]
     },
     {
@@ -271,9 +289,11 @@ const SEED_DB = {
       data: 'Desde 2025',
       descricao: 'Cuidado especial e ornamentação temática no jardim da entrada do condomínio, contando com iluminação em refletores verdes, personagens decorativos, decoração natalina e placa informativa da gestão.',
       destaque_nota: 'Entrada acolhedora e bem cuidada para moradores e visitantes.',
-      imagem: 'fachada-quebec.png',
+      imagem: 'mel-decoracao-entrada-1.jpg',
       fotos: [
-        { url: 'fachada-quebec.png', fase: 'Concluído', legenda: 'Decoração especial iluminada e acolhedora no jardim e fachada do condomínio.' }
+        { url: 'mel-decoracao-entrada-1.jpg', fase: '', legenda: 'Decoração natalina diurna no jardim da entrada.' },
+        { url: 'mel-decoracao-entrada-2.jpg', fase: '', legenda: 'Decoração especial iluminada à noite no jardim da entrada.' },
+        { url: 'mel-grama-depois-natal.jpg', fase: '', legenda: 'Iluminação natalina noturna na entrada do Residencial Quebec.' }
       ]
     },
     {
@@ -284,9 +304,18 @@ const SEED_DB = {
       data: 'Desde 2025',
       descricao: 'Comemoração especial da Semana das Crianças realizada para os pequenos moradores do Quebec: sessão de cinema no telão à noite, bolo confeitado, cachorro-quente, refrigerante, pintura facial, desenhos para colorir e saquinhos de lembrancinhas.',
       destaque_nota: 'Momento de alegria e confraternização para as crianças do condomínio.',
-      imagem: 'convivencia-jardim.png',
+      imagem: 'mel-criancas-bolo.jpg',
       fotos: [
-        { url: 'convivencia-jardim.png', fase: 'Concluído', legenda: 'Comemoração da Semana das Crianças e momentos de integração no condomínio.' }
+        { url: 'mel-criancas-bolo.jpg', fase: '', legenda: 'Comemoração com bolo e refrigerantes para as crianças.' },
+        { url: 'mel-criancas-cinema.jpg', fase: '', legenda: 'Sessão de cinema no telão à noite.' },
+        { url: 'mel-criancas-pipoca.jpg', fase: '', legenda: 'Crianças reunidas assistindo ao filme com lanche.' },
+        { url: 'mel-criancas-lembrancinhas.jpg', fase: '', legenda: 'Saquinhos de doces e lembrancinhas preparados para as crianças.' },
+        { url: 'mel-criancas-pintura-rosto.jpg', fase: '', legenda: 'Pintura facial artística de borboleta.' },
+        { url: 'mel-criancas-pintura-heroi.jpg', fase: '', legenda: 'Pintura facial infantil.' },
+        { url: 'mel-parquinho-depois-cercado.jpg', fase: '', legenda: 'Brincadeiras e pintura facial ao ar livre.' },
+        { url: 'mel-criancas-desenhos.jpg', fase: '', legenda: 'Oficina de desenhos e pintura com canetinhas.' },
+        { url: 'mel-criancas-jardim.jpg', fase: '', legenda: 'Registro das crianças na área verde do condomínio.' },
+        { url: 'mel-lazer-fogao.jpg', fase: '', legenda: 'Preparo do cachorro-quente para a festa das crianças.' }
       ]
     }
   ],
