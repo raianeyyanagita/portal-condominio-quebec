@@ -715,7 +715,7 @@ function handleAdminLogin(e) {
     renderAdminAll();
     showToast('Bem-vindo ao Painel do Síndico!');
   } else {
-    showToast('Credenciais inválidas. Use celson / quebec383');
+    showToast('Usuário ou senha incorretos. Acesso restrito à administração.');
   }
 }
 
